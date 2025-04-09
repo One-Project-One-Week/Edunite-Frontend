@@ -1,16 +1,16 @@
 import LazyLoad from "@/components/LazyLoad";
-import { LoginPage, SignUpPage } from "@/constants/LazyLoadElement";
+import { LoginPageLazyLoadElement, SignUpPageLazyLoadElement } from "@/constants/LazyLoadElement";
 
 
 const authRoute = [
     {
         path: "login",
-        element: <LazyLoad component={LoginPage} />
+        element: <LazyLoad component={LoginPageLazyLoadElement} />
 
     },
     {
         path: "sign-up",
-        element: <LazyLoad component={SignUpPage} />
+        element: <LazyLoad component={SignUpPageLazyLoadElement} />
     }
 ];
 

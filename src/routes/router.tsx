@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import authRoute from "./auth/AuthRoute";
-import publicLayout from "./public/PublicRoute";
+import publicRoute from "./public/PublicRoute";
 
 
 const router = createBrowserRouter([
@@ -8,7 +8,7 @@ const router = createBrowserRouter([
         errorElement: <div>404</div>
     },
     ...authRoute,
-    ...publicLayout
+    ...publicRoute
 ]);
 
 export default router;

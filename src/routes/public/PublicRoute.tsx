@@ -1,12 +1,12 @@
 import LazyLoad from "@/components/LazyLoad";
-import { PublicLayout } from "@/constants/LazyLoadElement";
+import { PublicLayoutLazyLoadElement } from "@/constants/LazyLoadElement";
 
-const publicLayout = [
+const publicRoute = [
     {
         path: '/',
-        element: <LazyLoad component={PublicLayout} />
+        element: <LazyLoad component={PublicLayoutLazyLoadElement} />
     }
 ]
 
 
-export default publicLayout;
+export default publicRoute;
