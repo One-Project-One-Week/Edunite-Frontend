@@ -14,7 +14,7 @@ export default function Navbar() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <NavigationMenuLink href="/" className="text-3xl font-extrabold text-mint-julep-600 hover:text-mint-julep-800">
+            <NavigationMenuLink href="/" className="text-3xl font-extrabold text-indigo-600 hover:text-indigo-800">
               Brand
             </NavigationMenuLink>
           </NavigationMenuItem>
@@ -24,22 +24,22 @@ export default function Navbar() {
       <NavigationMenu>
         <NavigationMenuList className="flex space-x-8">
           <NavigationMenuItem>
-            <NavigationMenuLink href="/" className="text-lg font-medium text-mint-julep-600 hover:text-mint-julep-800">
+            <NavigationMenuLink href="/" className="text-lg font-medium text-gray-800 hover:text-indigo-600">
               Home
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink href="/about" className="text-lg font-medium text-mint-julep-600 hover:text-mint-julep-800">
+            <NavigationMenuLink href="/about" className="text-lg font-medium text-gray-800 hover:text-indigo-600">
               About
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuLink href="/shop" className="text-lg font-medium text-mint-julep-600 hover:text-mint-julep-800">
+            <NavigationMenuLink href="/shop" className="text-lg font-medium text-gray-800 hover:text-indigo-600">
               Shop
             </NavigationMenuLink>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-lg font-medium text-mint-julep-600 hover:text-mint-julep-800">
+            <NavigationMenuTrigger className="text-lg font-medium text-gray-800 hover:text-indigo-600">
               Services
             </NavigationMenuTrigger>
             <NavigationMenuContent>
@@ -47,7 +47,7 @@ export default function Navbar() {
                 <li>
                   <NavigationMenuLink
                     href="/web-dev"
-                    className="block text-mint-julep-600 hover:text-mint-julep-800 hover:underline"
+                    className="block text-gray-800 hover:text-indigo-600 hover:underline"
                   >
                     Web Development
                   </NavigationMenuLink>
@@ -55,7 +55,7 @@ export default function Navbar() {
                 <li>
                   <NavigationMenuLink
                     href="/design"
-                    className="block text-mint-julep-600 hover:text-mint-julep-800 hover:underline"
+                    className="block text-gray-800 hover:text-indigo-600 hover:underline"
                   >
                     Design
                   </NavigationMenuLink>
@@ -72,7 +72,7 @@ export default function Navbar() {
           <NavigationMenuItem>
             <NavigationMenuLink
               href="/login"
-              className="px-5 py-2 text-lg font-medium text-mint-julep-600 border border-mint-julep-600 rounded-lg hover:text-mint-julep-800 hover:border-mint-julep-800"
+              className="px-5 py-2 text-lg font-medium text-gray-800 border border-gray-300 rounded-lg hover:text-indigo-600 hover:border-indigo-600"
             >
               Login
             </NavigationMenuLink>
@@ -80,7 +80,7 @@ export default function Navbar() {
           <NavigationMenuItem>
             <NavigationMenuLink
               href="/sign-up"
-              className="px-5 py-2 text-lg font-medium text-white bg-mint-julep-600 rounded-lg hover:bg-mint-julep-800"
+              className="px-5 py-2 text-lg font-medium text-white bg-indigo-600 rounded-lg hover:bg-indigo-700"
             >
               Sign Up
             </NavigationMenuLink>
