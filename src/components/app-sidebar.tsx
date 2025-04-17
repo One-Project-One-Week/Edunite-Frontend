@@ -39,7 +39,7 @@ const data = {
         },
         {
           title: "Requests",
-          url: "/admin/pending-posts",
+          url: "/admin/post-requests",
         },
       ],
     },

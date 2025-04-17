@@ -11,3 +11,4 @@ export const SignUpPageLazyLoadElement = lazy(() => import("../auth/pages/SignUp
 //Admin pages
 export const AllUserPageLazyLoadElement = lazy(() => import("../admin/pages/AllUserPage"));
 export const AllPostPageLazyLoadElement = lazy(() => import("../admin/pages/AllPostPage"));
+export const PendingPostPageLazyLoadElement = lazy(() => import("../admin/pages/PendingPostPage"));
