@@ -6,87 +6,69 @@ import {
   NavigationMenuContent,
   NavigationMenuLink,
 } from "@/components/ui/navigation-menu";
+import Logo from "@/assets/logo.png"; // Assuming you have a logo image
 
 export default function Navbar() {
   return (
-    <div className="flex justify-between items-center px-8 py-4">
-
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-            <NavigationMenuLink href="/" className="text-3xl font-extrabold text-mint-julep-600 hover:text-mint-julep-800">
-              Brand
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-
-      <NavigationMenu>
-        <NavigationMenuList className="flex space-x-8">
-          <NavigationMenuItem>
-            <NavigationMenuLink href="/" className="text-lg font-medium text-mint-julep-600 hover:text-mint-julep-800">
-              Home
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuLink href="/about" className="text-lg font-medium text-mint-julep-600 hover:text-mint-julep-800">
-              About
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuLink href="/shop" className="text-lg font-medium text-mint-julep-600 hover:text-mint-julep-800">
-              Shop
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className="text-lg font-medium text-mint-julep-600 hover:text-mint-julep-800">
-              Services
-            </NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid gap-4 p-4 bg-white shadow-md rounded-lg">
-                <li>
-                  <NavigationMenuLink
-                    href="/web-dev"
-                    className="block text-mint-julep-600 hover:text-mint-julep-800 hover:underline"
-                  >
-                    Web Development
-                  </NavigationMenuLink>
-                </li>
-                <li>
-                  <NavigationMenuLink
-                    href="/design"
-                    className="block text-mint-julep-600 hover:text-mint-julep-800 hover:underline"
-                  >
-                    Design
-                  </NavigationMenuLink>
-                </li>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+   <nav className="flex items-center justify-between">
+     
+      <div>
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/" >
+                <img src={Logo} alt="" className="w-40 h-25" />
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+      <div className="flex items-center space-x-8">
+        <NavigationMenu>
+          <NavigationMenuList className="flex space-x-8">
+            
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/" className="text-lg font-medium text-purple-heart-600 hover:text-purple-heart-800">
+                Home
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/courses" className="text-lg font-medium text-purple-heart-600 hover:text-purple-heart-800">
+                Courses
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/learning-path" className="text-lg font-medium text-purple-heart-600 hover:text-purple-heart-800">
+                Learning Path
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+            <NavigationMenuItem>
+              <NavigationMenuLink href="/blogs" className="text-lg font-medium text-purple-heart-600 hover:text-purple-heart-800">
+                Blogs
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+         
+          </NavigationMenuList>
+        </NavigationMenu>
 
 
-      <NavigationMenu>
-        <NavigationMenuList className="flex space-x-6">
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              href="/login"
-              className="px-5 py-2 text-lg font-medium text-mint-julep-600 border border-mint-julep-600 rounded-lg hover:text-mint-julep-800 hover:border-mint-julep-800"
-            >
-              Login
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuLink
-              href="/sign-up"
-              className="px-5 py-2 text-lg font-medium text-white bg-mint-julep-600 rounded-lg hover:bg-mint-julep-800"
-            >
-              Sign Up
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-    </div>
+        <NavigationMenu>
+          <NavigationMenuList className="flex space-x-6">
+            <NavigationMenuItem>
+              <NavigationMenuLink
+                href="/login"
+                className="px-6 py-2 text-lg font-medium 
+                text-purple-heart-600 border border-purple-heart-600 rounded-full
+                  hover:text-white-lilac-50 hover:bg-purple-heart-800"
+              >
+                Let's do it
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+  
+   </nav>
   );
 }
