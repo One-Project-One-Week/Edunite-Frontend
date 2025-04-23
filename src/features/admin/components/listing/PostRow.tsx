@@ -4,7 +4,7 @@ import { LucidePencil, LucideTrash2 } from "lucide-react";
 import { LucideNotepadText } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Post } from "@/types/Post";
-import { users } from "@/admin/data/userData";
+import { users } from "@/features/admin/data/userData";
 
 
 type PostRowProps = {

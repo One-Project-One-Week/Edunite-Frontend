@@ -5,10 +5,10 @@ export const PublicLayoutLazyLoadElement = lazy(() => import("../layouts/PublicL
 export const AdminLayoutLazyLoadElement = lazy(() => import("../layouts/AdminLayout"));
 
 //Auth pages
-export const LoginPageLazyLoadElement = lazy(() => import("../auth/pages/LoginPage"));
-export const SignUpPageLazyLoadElement = lazy(() => import("../auth/pages/SignUpPage"));
+export const LoginPageLazyLoadElement = lazy(() => import("../features/auth/pages/LoginPage"));
+export const SignUpPageLazyLoadElement = lazy(() => import("../features/auth/pages/SignUpPage"));
 
 //Admin pages
-export const AllUserPageLazyLoadElement = lazy(() => import("../admin/pages/AllUserPage"));
-export const AllPostPageLazyLoadElement = lazy(() => import("../admin/pages/AllPostPage"));
-export const PendingPostPageLazyLoadElement = lazy(() => import("../admin/pages/PendingPostPage"));
+export const AllUserPageLazyLoadElement = lazy(() => import("../features/admin/pages/AllUserPage"));
+export const AllPostPageLazyLoadElement = lazy(() => import("../features/admin/pages/AllPostPage"));
+export const PendingPostPageLazyLoadElement = lazy(() => import("../features/admin/pages/PendingPostPage"));

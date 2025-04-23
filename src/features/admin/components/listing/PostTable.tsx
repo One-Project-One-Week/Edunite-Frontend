@@ -5,7 +5,7 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table";
-import { mockPosts } from "@/admin/data/postData";
+import { mockPosts } from "@/features/admin/data/postData";
 import PostRow from "./PostRow";
 
 export default function PostTable() {

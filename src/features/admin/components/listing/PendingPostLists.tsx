@@ -1,5 +1,5 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { mockPosts } from "@/admin/data/postData";
+import { mockPosts } from "@/features/admin/data/postData";
 import { UserCircle } from "lucide-react";
 import { useState } from "react";
 import { format } from "date-fns";

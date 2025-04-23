@@ -5,7 +5,7 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table";
-import {users} from "@/admin/data/userData";
+import {users} from "@/features/admin/data/userData";
 import UserRow from "./UserRow";
 
 export default function UserTable() {

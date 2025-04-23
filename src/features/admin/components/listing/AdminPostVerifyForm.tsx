@@ -28,8 +28,8 @@ import {
 } from "@/components/ui/carousel";
 
 //mock data
-import { mockPosts } from "@/admin/data/postData";
-import { users } from "@/admin/data/userData";
+import { mockPosts } from "@/features/admin/data/postData";
+import { users } from "@/features/admin/data/userData";
 
 const verifyPostSchema = z.object({
   postID: z.string(),
