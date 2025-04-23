@@ -12,7 +12,7 @@ export default function AuthTabs() {
         <button
           className={`px-6 py-2 rounded-full text-sm font-semibold transition ${
             activeTab === "student"
-              ? "bg-purple-600 text-white"
+              ? "bg-blue-600 text-white"
               : "bg-gray-200 text-gray-700"
           }`}
           onClick={() => setActiveTab("student")}

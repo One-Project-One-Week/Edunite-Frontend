@@ -21,19 +21,37 @@ const courses = [
     instructor: "David Chen",
     date: "January 15, 2025",
   },
+  {
+    id: "1",
+    title: "Introduction to Web Development",
+    instructor: "John Doe",
+    date: "March 1, 2025",
+  },
+  {
+    id: "2",
+    title: "Fundamentals of UX/UI Design",
+    instructor: "Jane Smith",
+    date: "February 20, 2025",
+  },
+  {
+    id: "3",
+    title: "JavaScript for Beginners",
+    instructor: "David Chen",
+    date: "January 15, 2025",
+  },
 ];
 
 const EnrolledCourses = () => {
   return (
-    <div className="min-h-screen bg-white px-6 py-10">
+    <div className=" bg-white px-2">
       {/* Header */}
-      <header className="mb-10 text-center">
+      <header className="mb-4 text-center">
         <h1 className="text-3xl font-bold text-purple-700">Your Enrolled Courses</h1>
         <p className="text-gray-500 mt-2">Continue learning at your own pace 📘</p>
       </header>
 
       {/* Courses Grid */}
-      <div className="grid gap-6 max-w-5xl mx-auto md:grid-cols-2">
+      <div className="grid gap-6 max-w-5xl mx-auto md:grid-cols-3">
         {courses.map((course) => (
           <Card key={course.id} className="border-purple-200 hover:shadow-lg transition">
             <CardContent className="p-6 flex flex-col gap-4">

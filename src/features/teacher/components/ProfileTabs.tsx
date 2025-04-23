@@ -19,7 +19,7 @@ export default function ProfileTabs() {
   const [activeTab, setActiveTab] = useState("profile");
 
   return (
-    <div className="min-h-screen bg-white px-6">
+    <div className=" bg-white px-6">
       {/* Nav Tabs */}
       <div className="flex justify-center gap-4 flex-wrap mb-8">
         {TABS.map((tab) => (

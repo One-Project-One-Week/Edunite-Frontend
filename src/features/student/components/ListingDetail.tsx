@@ -45,7 +45,7 @@ const CourseDetail: React.FC = () => {
     window.alert("Enrollment successful!");
    }
   return (
-    <div className="max-w-6xl mx-auto px-4 py-10 space-y-8">
+    <div className="max-w-6xl mx-auto px-4 py-10 space-y-4">
       {/* Banner */}
       <div className="w-full h-64 rounded-xl overflow-hidden shadow-md">
         <img

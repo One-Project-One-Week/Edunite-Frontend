@@ -4,7 +4,8 @@ import { UserCircle, BookOpen } from "lucide-react";
 
 const DashboardHome = () => {
   return (
-    <div className="min-h-screen bg-white px-6 py-10">
+    <main className=" flex items-center justify-center my-10">
+    <div className=" bg-white px-6 py-10">
       {/* Header */}
       <header className="mb-10">
         <h1 className="text-3xl font-bold text-purple-700 text-center">Welcome to Your Dashboard</h1>
@@ -40,6 +41,7 @@ const DashboardHome = () => {
         </Card>
       </div>
     </div>
+    </main>
   );
 };
 

@@ -6,7 +6,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
 const StudentProfile = () => {
   return (
-    <div className="min-h-screen bg-white px-6 py-4">
+    <div className=" bg-white px-6 ">
       {/* Header */}
       <header className="mb-10 text-center">
         <h1 className="text-3xl font-bold text-purple-700">Your Profile</h1>
@@ -15,7 +15,7 @@ const StudentProfile = () => {
 
       {/* Profile Card */}
       <Card className="max-w-2xl mx-auto shadow-sm border-purple-200">
-        <CardContent className="py-8 px-6">
+        <CardContent className="py-4 px-6">
           {/* Avatar and Name */}
           <div className="flex flex-col items-center mb-6">
             <Avatar className="w-20 h-20">

@@ -51,13 +51,13 @@ const dummyCourses = [
 
 export default function Listing() {
   return (
-    <div className=" min-h-screen">
-      {/* <header className="px-6 py-10 bg-white border-b">
+    <div>
+      <header className="px-6 py-10 bg-white border-b">
         <h1 className="text-3xl font-bold text-gray-800">Course & Events For Students</h1>
         <p className="text-gray-500 mt-2 max-w-xl">
           Explore curated content to enhance your skills and knowledge.
         </p>
-      </header> */}
+      </header>
       <CourseSection title="Recommended Courses" courses={dummyCourses} />
       {/* Add more sections if needed */}
     </div>
