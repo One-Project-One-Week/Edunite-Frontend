@@ -1,8 +1,9 @@
 import Image from "@/assets/prof.svg"
+import { Link } from "react-router-dom"
 
 export default function LandingPage() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50">
+    <main className=" flex items-center justify-center my-10">
     <div className="container mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
       
       {/* Text Section */}
@@ -14,7 +15,7 @@ export default function LandingPage() {
           Explore the best features and learn how we can help you succeed. This landing page is simple, clean, and effective.
         </p>
         <button className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-500 transition">
-          Get Started - click to login
+        <Link to="/login">Join Now</Link>
         </button>
       </div>
   
