@@ -1,5 +1,5 @@
 import LazyLoad from "@/components/LazyLoad";
-import { StudentCourseRequestFormLazyLoadElement, StudentDashboardPageLazyLoadElement, StudentEnrolledCoursesDetailsPageLazyLoadElement, StudentEnrollFormLazyLoadElement, StudentListingDetailsPageLazyLoadElement, StudentListingPageLazyLoadElement, StudentProfilePageLazyLoadElement } from "@/constants/LazyLoadElement";
+import { LandingPageLazyLoadElement, StudentCourseRequestFormLazyLoadElement, StudentDashboardPageLazyLoadElement, StudentEnrolledCoursesDetailsPageLazyLoadElement, StudentEnrollFormLazyLoadElement, StudentListingDetailsPageLazyLoadElement, StudentListingPageLazyLoadElement, StudentProfilePageLazyLoadElement } from "@/constants/LazyLoadElement";
 
 
 const studentListingRoute = [
@@ -33,6 +33,11 @@ const studentListingRoute = [
         path: "/dashboard/student/course-request-form",
         element: <LazyLoad component={StudentCourseRequestFormLazyLoadElement} />
     },
+
+    {
+        path : "/dashboard/learning-path",
+        element: <LazyLoad component={LandingPageLazyLoadElement} />
+    }
 ]
 
 export default studentListingRoute;

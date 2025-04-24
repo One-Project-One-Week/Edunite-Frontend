@@ -18,6 +18,7 @@ export default function AllCourseLayout() {
             return <AllCourseList request={request} />;
           })}
         </div>
+        
       </ScrollArea>
     </section>
   )

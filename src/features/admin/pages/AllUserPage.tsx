@@ -4,6 +4,9 @@ import UserTable from "../components/users/UserTable"
 import AdminBreadCrumb from "@/components/AdminBreadCrumb"
 
 export default function AllUserPage() {
+
+
+
   return (
     <div>
       <h1 className="px-5 mb-5 text-xl font-bold">Users</h1>

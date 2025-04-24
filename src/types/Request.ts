@@ -8,12 +8,18 @@ type BaseCourseRequest = {
     status: "pending" | "approved" | "rejected";
     created_at: string;
   };
+
+export type Student = {
+    id: string;
+    name: string;
+    avatar: string;
+  };
   
  export type StudentRequest = BaseCourseRequest & {
     id: string;
     user_id: string;
     username: string;
-    student_quantity: string[];
+    student_quantity: Student[];
   };
   
  export type CourseCreateRequest = BaseCourseRequest & {

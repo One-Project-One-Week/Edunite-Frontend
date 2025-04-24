@@ -28,20 +28,16 @@ export default function Navbar() {
           <NavigationMenuList className="flex space-x-8">
 
             <NavigationMenuItem>
-              <NavigationMenuLink href="/" className="text-lg font-medium text-purple-heart-600 hover:text-purple-heart-800">
-                Home
+              <NavigationMenuLink href="/dashboard" className="text-lg font-medium text-purple-heart-600 hover:text-purple-heart-800">
+                Dashboard
               </NavigationMenuLink>
             </NavigationMenuItem>
             <NavigationMenuItem>
-              <NavigationMenuLink href="/dashboard/student/listing" className="text-lg font-medium text-purple-heart-600 hover:text-purple-heart-800">
+              <NavigationMenuLink href="/our-courses" className="text-lg font-medium text-purple-heart-600 hover:text-purple-heart-800">
                 Courses
               </NavigationMenuLink>
             </NavigationMenuItem>
-            <NavigationMenuItem>
-              <NavigationMenuLink href="/learning-path" className="text-lg font-medium text-purple-heart-600 hover:text-purple-heart-800">
-                Learning Path
-              </NavigationMenuLink>
-            </NavigationMenuItem>
+           
             <NavigationMenuItem>
               <NavigationMenuLink href="/dashboard/student/course-request-form" className="text-lg font-medium text-purple-heart-600 hover:text-purple-heart-800">
                 Request

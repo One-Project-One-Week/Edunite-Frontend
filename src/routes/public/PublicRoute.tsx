@@ -1,5 +1,5 @@
 import LazyLoad from "@/components/LazyLoad";
-import { LandingPageLazyLoadElement, LoginPageLazyLoadElement, PublicLayoutLazyLoadElement } from "@/constants/LazyLoadElement";
+import {  LandingPageLazyLoadElement, LoginPageLazyLoadElement, OurCoursesDetailPageLazyLoadElement, OurCoursesPageLazyLoadElement, PublicLayoutLazyLoadElement } from "@/constants/LazyLoadElement";
 
 const publicRoute = [
     {
@@ -10,10 +10,20 @@ const publicRoute = [
                 index : true,
                 element: <LazyLoad component={LandingPageLazyLoadElement}/>
             },
+           
             {
                 path    : '/login',
-                elemet : <LazyLoad component={LoginPageLazyLoadElement}/>
+                element : <LazyLoad component={LoginPageLazyLoadElement}/>
+            },
+            {
+                path    : '/our-courses',
+                element : <LazyLoad component={OurCoursesPageLazyLoadElement}/>
+            },
+            {
+                path    : `/our-courses/:id`,
+                element : <LazyLoad component={OurCoursesDetailPageLazyLoadElement}/>
             }
+
             
           
         ]
