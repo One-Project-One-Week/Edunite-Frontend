@@ -53,24 +53,33 @@ const EnrolledCourses = () => {
       {/* Courses Grid */}
       <div className="grid gap-6 max-w-5xl mx-auto md:grid-cols-3">
         {courses.map((course) => (
-          <Card key={course.id} className="border-purple-200 hover:shadow-lg transition">
-            <CardContent className="p-6 flex flex-col gap-4">
-              <div className="flex items-center gap-3">
-                <Book className="text-purple-600 w-6 h-6" />
-                <h2 className="text-xl font-semibold text-purple-800">{course.title}</h2>
-              </div>
-              <p className="text-sm text-gray-500">Instructor: {course.instructor}</p>
-              <p className="text-sm text-gray-400">Enrolled: {course.date}</p>
-              <div className="flex justify-end">
-                <Button
-                  variant="outline"
-                  className="text-purple-700 border-purple-600 hover:bg-purple-100 flex items-center gap-1"
-                >
-                  View Course <ArrowRight className="w-4 h-4" />
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+         <Card key={course.id}  className="bg-gradient-to-br from-white via-purple-50 to-purple-100 border-purple-200 hover:shadow-lg transition h-full"
+>
+         <CardContent className="p-6 flex flex-col gap-4 h-full">
+           <div className="flex items-center gap-3">
+             <Book className="text-purple-600 w-6 h-6" />
+             <h2 className="text-xl font-semibold text-purple-800">{course.title}</h2>
+           </div>
+       
+           {/* Spacer to push bottom content to the end */}
+           <div className="flex-grow" />
+       
+           {/* Bottom content */}
+           <div className="flex flex-col gap-1">
+             <p className="text-sm text-gray-500">Instructor: {course.instructor}</p>
+             <p className="text-sm text-gray-400">Enrolled: {course.date}</p>
+             <div className="flex justify-end mt-2">
+               <Button
+                 variant="outline"
+                 className="text-purple-700 border-purple-600 hover:bg-purple-100 flex items-center gap-1"
+               >
+                 View Course <ArrowRight className="w-4 h-4" />
+               </Button>
+             </div>
+           </div>
+         </CardContent>
+       </Card>
+       
         ))}
       </div>
     </div>

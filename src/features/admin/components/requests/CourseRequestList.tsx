@@ -63,7 +63,7 @@ export default function CourseRequestList({ request }: CourseRequestListProps) {
 
       <div className="mt-4">
         <Button className="bg-purple-heart-600 hover:bg-purple-heart-700 text-white w-full py-2 rounded-lg transition">
-          <Link to={`/admin/request/create-course-requests/detail/${request.id}`}>
+          <Link to={`/admin/request/create-course-requests/${request.id}/${request.title}`}>
             View Details
           </Link>
         </Button>

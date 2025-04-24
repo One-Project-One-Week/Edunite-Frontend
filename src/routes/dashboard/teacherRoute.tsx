@@ -1,5 +1,6 @@
 import LazyLoad from "@/components/LazyLoad";
-import {  TeacherCourseDetailPageLazyLoadElement, TeacherProfilePageLazyLoadElement } from "@/constants/LazyLoadElement";
+import {  TeacherCourseDetailPageLazyLoadElement, TeacherDashboardPageLazyLoadElement, TeacherProfilePageLazyLoadElement } from "@/constants/LazyLoadElement";
+
 
 
 
@@ -14,10 +15,10 @@ const teacherListingRoute = [
         element: <LazyLoad component={TeacherCourseDetailPageLazyLoadElement} />
     },
     
-    // {
-    //     path: "/dashboard/student/listing/:id",
-    //     element: <LazyLoad component={StudentListingDetailsPageLazyLoadElement} />
-    // },
+    {
+        path: "/dashboard/teacher",
+        element: <LazyLoad component={TeacherDashboardPageLazyLoadElement} />
+    },
     // {
     //     path: "/dashboard/student/enroll-form",
     //     element: <LazyLoad component={StudentEnrollFormLazyLoadElement} />
