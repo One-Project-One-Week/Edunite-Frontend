@@ -41,7 +41,7 @@ export default function StudentRequestList({ request }: StudentRequestListProps)
       </div>
       <div className="mt-4">
         <Button className="bg-purple-heart-600 hover:bg-purple-heart-600 text-white w-full py-2 rounded-lg transition">
-          <Link to={"/admin/request/student-requests/detail/" + request.id}>View Details</Link>
+          <Link to={`/admin/request/student-requests/${request.id}/${request.title}`}>View Details</Link>
         </Button>
       </div>
     </div>

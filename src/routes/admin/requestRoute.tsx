@@ -7,7 +7,7 @@ const requestRoute = [
         element: <LazyLoad component={ListingStudentRequestPageLazyLoadElement} />
     },
     {
-        path: "/admin/request/student-requests/detail/:id",
+        path: "/admin/request/student-requests/:id/:title",
         element: <LazyLoad component={StudentRequestDetailPageLazyLoadElement} />
     },
     {
@@ -15,7 +15,7 @@ const requestRoute = [
         element: <LazyLoad component={ListingCreateCourseRequestsPageLazyLoadElement} />
     },
     {
-        path: "/admin/request/create-course-requests/detail/:id",
+        path: "/admin/request/create-course-requests/:id/:title",
         element: <LazyLoad component={CourseRequestDetailPageLazyLoadElement} />
     },
     {

@@ -21,6 +21,7 @@ export const ListingCreateCourseRequestsPageLazyLoadElement = lazy(() => import(
 export const CourseRequestDetailPageLazyLoadElement = lazy(() => import("../features/admin/pages/CourseRequestDetailPage"));
 export const ListingTeacherRequestsPageLazyLoadElement= lazy(() => import("../features/admin/pages/ListingTeacherRequestsPage"));
 export const ListingAllCoursePageLazyLoadElement = lazy(() => import("../features/admin/pages/ListingAllCoursePage"));
+export const CourseDatailPageLazyLoadElement = lazy(() => import("../features/admin/pages/CourseDetailPage"));
 
 
 //Student pages
