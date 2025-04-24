@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import authRoute from "./auth/AuthRoute";
 import publicRoute from "./public/PublicRoute";
-import adminRoute from "./admin/AdminRoute";
+import adminRoute from "./admin/adminRoute";
 
 
 const router = createBrowserRouter([

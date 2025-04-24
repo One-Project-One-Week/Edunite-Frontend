@@ -1,5 +1,5 @@
 import * as React from "react";
-import { LucidePackage, SproutIcon, BookOpenText, Users } from "lucide-react";
+import { Library, SproutIcon, BookOpenText, Users } from "lucide-react";
 
 import { NavMain} from "@/components/nav-main";
 
@@ -14,52 +14,44 @@ import { Link } from "react-router-dom";
 // This is sample data.
 const data = {
   logo:{
-      title: "Digital Broker",
+      title: "Edunite",
       url: "/admin",
       icon: SproutIcon,
     },
   navMain: [
     {
-      title: "Listing",
+      title: "Courses",
       url: "#",
-      icon: LucidePackage,
+      icon: Library,
       isActive: true,
       items: [
         {
-          title: "Posts",
-          url: "/admin/posts",
+          title: "All Courses",
+          url: "/admin/courses",
         },
         {
-          title: "Verified",
-          url: "/admin/verified-posts",
-        },
-        {
-          title: "Pending",
-          url: "/admin/pending-posts",
-        },
-        {
-          title: "Requests",
-          url: "/admin/post-requests",
+          title: "Started Courses",
+          url: "/admin/started-courses",
         },
       ],
     },
     {
-      title: "Buyer Requests",
+      title: "Requests",
       url: "#",
       icon: BookOpenText,
       isActive: false,
       items: [
         {
-          title: "Tour Requests",
-          url: "/admin/posts",
+          title: "Student Requests",
+          url: "/admin/request/student-requests",
         },
         {
-          title: "Confirmation Requests",
-          url: "/admin/verified-posts",
+          title: "Course Requests",
+          url: "/admin/request/create-course-requests",
         },
         {
-          title: "Appointment Calendar",
-          url: "/admin/pending-posts",
+          title: "Teacher Requests",
+          url: "/admin/request/teacher-requests",
         },
       ],
     },
@@ -88,8 +80,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       <SidebarHeader>
         <Link to="/admin">
           <SidebarMenuButton tooltip={data.logo.title} className="flex align-center justify-center ">
-            {data.logo.icon && <data.logo.icon />}
-                <span className="font-bold text-xl tracking-[0.2rem]">{data.logo.title}</span>
+            {data.logo.icon && <data.logo.icon className="text-purple-heart-600" />}
+                <span className="font-bold text-xl tracking-[0.2rem] text-purple-heart-600">{data.logo.title}</span>
           </SidebarMenuButton>
         </Link>
       </SidebarHeader>

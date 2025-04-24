@@ -1,7 +1,8 @@
 import LazyLoad from "@/components/LazyLoad";
 import { AdminLayoutLazyLoadElement } from "@/constants/LazyLoadElement";
 import userRoute from "./userRoute";
-import listingRoute from "./listingRoute";
+import requestRoute from "./requestRoute";
+import courseRoute from "./courseRoute";
 
 const adminRoute = [
     {
@@ -9,7 +10,8 @@ const adminRoute = [
         element: <LazyLoad component={AdminLayoutLazyLoadElement} />,
         children: [
             ...userRoute,
-            ...listingRoute
+            ...courseRoute,
+            ...requestRoute
         ]
     }
 ]
