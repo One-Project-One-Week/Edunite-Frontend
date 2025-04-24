@@ -130,8 +130,8 @@ export default function StuSignUpForm() {
                         {/* Submit Button */}
                         <Button
                             type="submit"
-                            className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-500 disabled:bg-gray-300 transition"
-                            disabled={!form.formState.isValid}
+                            className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-500 disabled:bg-gray-300 transition"
+                            // disabled={!form.formState.isValid}
                         >
                             Sign Up
                         </Button>
