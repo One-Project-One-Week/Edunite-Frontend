@@ -1,10 +1,22 @@
 import LazyLoad from "@/components/LazyLoad";
-import { PublicLayoutLazyLoadElement } from "@/constants/LazyLoadElement";
+import { LandingPageLazyLoadElement, LoginPageLazyLoadElement, PublicLayoutLazyLoadElement } from "@/constants/LazyLoadElement";
 
 const publicRoute = [
     {
         path: '/',
-        element: <LazyLoad component={PublicLayoutLazyLoadElement} />
+        element: <LazyLoad component={PublicLayoutLazyLoadElement}/>,
+        children: [
+            {
+                index : true,
+                element: <LazyLoad component={LandingPageLazyLoadElement}/>
+            },
+            {
+                path    : '/login',
+                elemet : <LazyLoad component={LoginPageLazyLoadElement}/>
+            }
+            
+          
+        ]
     }
 ]
 

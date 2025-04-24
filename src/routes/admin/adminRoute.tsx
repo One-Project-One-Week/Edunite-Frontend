@@ -4,10 +4,15 @@ import userRoute from "./userRoute";
 import requestRoute from "./requestRoute";
 import courseRoute from "./courseRoute";
 
+
 const adminRoute = [
     {
         path: '/admin',
-        element: <LazyLoad component={AdminLayoutLazyLoadElement} />,
+        element: (
+            <ProtectedRoute>
+                <LazyLoad component={AdminLayoutLazyLoadElement} />
+            </ProtectedRoute>
+        ),
         children: [
             ...userRoute,
             ...courseRoute,
