@@ -19,7 +19,7 @@ export default function AllCourseList({request}: StudentRequestListProps) {
 
   <div className="text-sm text-gray-600 space-y-2">
     <p>
-      <span className="font-medium text-gray-800">Requested by:</span> {request.username}
+      <span className="font-medium text-gray-800">Host by:</span> {request.username}
     </p>
     <p>
       <span className="font-medium text-gray-800">Category:</span> {request.course_category}

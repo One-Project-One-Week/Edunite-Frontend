@@ -5,14 +5,16 @@ import adminRoute from "./admin/adminRoute";
 import dashboardRoute from "./dashboard/DashboardRoute";
 
 
+
 const router = createBrowserRouter([
     {
         errorElement: <div>404</div>
     },
+
     ...authRoute,
     ...adminRoute,
     ...publicRoute,
-    ...dashboardRoute
+    ...dashboardRoute,
 ]);
 
 export default router;

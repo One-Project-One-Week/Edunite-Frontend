@@ -1,7 +1,10 @@
 import { lazy } from "react";
 
-// landing page
+// utils page
 export const LandingPageLazyLoadElement = lazy(() => import("../pages/LandingPage"));
+export const LearnngPathLazyLoadElement = lazy(() => import("../pages/LearningPathPage"));
+export const OurCoursesPageLazyLoadElement = lazy(() => import("../pages/CoursesPage"));
+export const OurCoursesDetailPageLazyLoadElement = lazy(() => import("../pages/CoursesDetailPage"));
 
 //Layouts
 export const PublicLayoutLazyLoadElement = lazy(() => import("../layouts/PublicLayout"));
