@@ -1,5 +1,5 @@
 import { useMutation } from "@tanstack/react-query";
-import { useRegisterOption } from "../queries/authQueryOptions";
+import { useRegisterOption } from "@/queries/authQueryOptions";
 
 
 export const useRegister = () => {

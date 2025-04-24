@@ -1,6 +1,6 @@
 import { useQueryClient, MutationOptions } from "@tanstack/react-query";
 import { LoginResponse, Credential, RegisterStudentPayload, RegisterTeacherPayload, RegisterResponse } from "@/types/Auth";
-import { login, register } from "../services/userServices";
+import { login, register } from "../services/authServices";
 import useAuthStore from "@/store/authStore";
 
 export const useLoginOption = (): MutationOptions<
