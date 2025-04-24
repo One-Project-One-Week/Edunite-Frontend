@@ -1,9 +1,9 @@
 import LazyLoad from "@/components/LazyLoad";
 import { AdminLayoutLazyLoadElement } from "@/constants/LazyLoadElement";
 import userRoute from "./userRoute";
-import listingRoute from "./listingRoute";
-import ProtectedRoute from "@/components/ProtectedRoute";
-import AdminHome from "@/pages/admin/AdminHome";
+import requestRoute from "./requestRoute";
+import courseRoute from "./courseRoute";
+
 
 const adminRoute = [
     {
@@ -14,12 +14,9 @@ const adminRoute = [
             </ProtectedRoute>
         ),
         children: [
-            {
-                index : true,
-                element :<AdminHome/>
-            },
             ...userRoute,
-            ...listingRoute
+            ...courseRoute,
+            ...requestRoute
         ]
     }
 ]

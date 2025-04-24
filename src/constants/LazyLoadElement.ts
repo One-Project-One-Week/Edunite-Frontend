@@ -14,8 +14,14 @@ export const SignUpPageLazyLoadElement = lazy(() => import("../features/auth/pag
 
 //Admin pages
 export const AllUserPageLazyLoadElement = lazy(() => import("../features/admin/pages/AllUserPage"));
-export const AllPostPageLazyLoadElement = lazy(() => import("../features/admin/pages/AllPostPage"));
-export const PendingPostPageLazyLoadElement = lazy(() => import("../features/admin/pages/PendingPostPage"));
+
+export const ListingStudentRequestPageLazyLoadElement = lazy(() => import("../features/admin/pages/ListingStudentRequestsPage"));
+export const StudentRequestDetailPageLazyLoadElement = lazy(() => import('../features/admin/pages/StudentRequestDetailPage'));
+export const ListingCreateCourseRequestsPageLazyLoadElement = lazy(() => import('../features/admin/pages/ListingCreateCourseRequestsPage'));
+export const CourseRequestDetailPageLazyLoadElement = lazy(() => import("../features/admin/pages/CourseRequestDetailPage"));
+export const ListingTeacherRequestsPageLazyLoadElement= lazy(() => import("../features/admin/pages/ListingTeacherRequestsPage"));
+export const ListingAllCoursePageLazyLoadElement = lazy(() => import("../features/admin/pages/ListingAllCoursePage"));
+
 
 //Student pages
 export const StudentProfilePageLazyLoadElement = lazy(() => import("../features/student/pages/StudentProfilePage"));
@@ -30,3 +36,4 @@ export const StudentCourseRequestFormLazyLoadElement = lazy(() => import("../fea
 export const TeacherProfilePageLazyLoadElement = lazy(() => import("../features/teacher/pages/TeacherProfilePage"));
 export const TeacherCreateCoursePageLazyLoadElement = lazy(() => import("../features/teacher/pages/TeacherCreateCoursePage"));
 export const TeacherCourseDetailPageLazyLoadElement = lazy(() => import("../features/teacher/pages/CourseDetailPage"));
+
