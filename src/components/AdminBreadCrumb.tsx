@@ -18,7 +18,7 @@ import {
     links,
   }: Partial<BreadcrumbProps>) => {
     return (
-      <div>
+      <div className="px-5">
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem className="hidden md:block">

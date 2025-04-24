@@ -34,7 +34,7 @@ export default function AllCourseList({request}: StudentRequestListProps) {
 
   <div className="mt-5">
     <Link
-      to={`/admin/request/student-requests/detail/${request.id}`}
+      to={`/admin/courses/${request.id}/${request.title}`}
       className="inline-block text-center w-full bg-purple-heart-600 hover:bg-purple-heart-700 text-white text-sm font-semibold py-2 rounded-md transition"
     >
       View Details

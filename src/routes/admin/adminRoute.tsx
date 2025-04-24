@@ -3,6 +3,7 @@ import { AdminLayoutLazyLoadElement } from "@/constants/LazyLoadElement";
 import userRoute from "./userRoute";
 import requestRoute from "./requestRoute";
 import courseRoute from "./courseRoute";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 
 const adminRoute = [
