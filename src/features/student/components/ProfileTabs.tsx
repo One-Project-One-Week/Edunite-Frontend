@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils"; // for conditional styling
 import StudentProfile from "./Profile";
-import EnrolledCourses  from "./EnrolledCourses";
+import EnrolledCourses from "./EnrolledCourses";
+import Certificate from "./Certificates";
 // import { Certificates } from "./Certificates";
 // import { OtherSettings } from "./OtherSettings";
 
@@ -10,8 +11,8 @@ const TABS = [
   { id: "profile", label: "Profile" },
   { id: "courses", label: "Courses" },
   { id: "certificates", label: "Certificates" },
-  { id: "others", label: "Others" },
-  {id : "logout", label: "Logout"}
+  // { id: "others", label: "Others" },
+  // { id: "logout", label: "Logout" }
 ];
 
 export default function ProfileTabs() {
@@ -42,6 +43,12 @@ export default function ProfileTabs() {
       <div className="max-w-5xl mx-auto">
         {activeTab === "profile" && <StudentProfile />}
         {activeTab === "courses" && <EnrolledCourses />}
+        {activeTab === "certificates" && <Certificate certificate={{
+          courseTitle: "Next.js Fundamentals",
+          studentName: "John Doe",
+          instructor: "Jane Smith",
+          date: "April 24, 2025",
+        }} />}
         {activeTab === "logout" && (
           <p>Logout</p>
         )}
