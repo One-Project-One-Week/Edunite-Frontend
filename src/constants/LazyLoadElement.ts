@@ -19,6 +19,9 @@ export const SignUpPageLazyLoadElement = lazy(() => import("../features/auth/pag
 
 //Admin pages
 export const AllUserPageLazyLoadElement = lazy(() => import("../features/admin/pages/AllUserPage"));
+export const AllTeacherPageLazyLoadElement = lazy(() => import("../features/admin/pages/AllTeacherPage"));
+export const AllStudentPageLazyLoadElement = lazy(() => import("../features/admin/pages/AllStudentPage"));
+
 
 export const ListingStudentRequestPageLazyLoadElement = lazy(() => import("../features/admin/pages/ListingStudentRequestsPage"));
 export const StudentRequestDetailPageLazyLoadElement = lazy(() => import('../features/admin/pages/StudentRequestDetailPage'));

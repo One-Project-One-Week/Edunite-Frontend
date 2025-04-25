@@ -30,11 +30,10 @@ export default function LoginForm() {
   const navigate = useNavigate()
 
 
-
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
   });
-
+  const login = useMutation(useLoginOption())
   function onSubmit(data: z.infer<typeof loginSchema>) {
     console.log(data);
 
@@ -44,8 +43,10 @@ export default function LoginForm() {
       }
     });
 
-  }
+   
 
+  })
+  }
 
   return (
     <section className="grid w-lvw h-lvh grid-cols-2 bg-white-lilac-50">

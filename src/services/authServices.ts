@@ -1,14 +1,18 @@
 import API from "@/api/apiConfig";
 import { dummyStudents, dummyTeachers } from "@/assets/dummy-datas/user";
 
-export const register = async (data: { username: string; password: string; role: string }) => {
-    try {
-        const response = await API.post("/auth/register", data);
-        return response.data;
-    } catch (error) {
-        console.error("Error during registration:", error);
-        throw error;
-    }
+export const register = async (data: {
+  username: string;
+  password: string;
+  role: string;
+}) => {
+  try {
+    const response = await API.post("/auth/register", data);
+    return response.data;
+  } catch (error) {
+    console.error("Error during registration:", error);
+    throw error;
+  }
 };
 
 export const login = async (credential: { email: string; password: string }) => {
