@@ -14,6 +14,8 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { useMutation } from "@tanstack/react-query";
+import { useLoginOption } from "@/queries/authQueryOptions";
 
 
 const loginSchema = z.object({
@@ -31,6 +33,10 @@ export default function LoginForm() {
 
   function onSubmit(data: z.infer<typeof loginSchema>) {
     console.log(data);
+    const login = useMutation(useLoginOption())
+
+    login.mutate({ email: data.email, password: data.password });
+
   }
 
 
@@ -82,7 +88,7 @@ export default function LoginForm() {
               type="submit"
               className="w-full bg-purple-heart-600 text-white py-2 px-4 rounded-lg
                hover:bg-purple-heart-400 disabled:bg-gray-300"
-               disabled={!form.formState.isValid}
+              disabled={!form.formState.isValid}
             >
               Login
             </Button>

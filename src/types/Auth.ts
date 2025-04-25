@@ -1,7 +1,7 @@
 import { Stundent } from "./User";
 
 export type Credential = {
-    username: string;
+    email: string;
     password: string;
 }
 
