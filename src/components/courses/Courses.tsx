@@ -20,7 +20,7 @@ export default function Courses() {
       </div>
     );
   }
-
+    
   return (
     <div className="px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       <header className="py-10 bg-white border-b">

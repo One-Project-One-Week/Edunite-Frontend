@@ -1,5 +1,5 @@
 import LazyLoad from "@/components/LazyLoad";
-import { AdminLayoutLazyLoadElement } from "@/constants/LazyLoadElement";
+import { AdminDashboardPageLazyLoadElement, AdminLayoutLazyLoadElement } from "@/constants/LazyLoadElement";
 import userRoute from "./userRoute";
 import requestRoute from "./requestRoute";
 import courseRoute from "./courseRoute";
@@ -15,6 +15,10 @@ const adminRoute = [
             </ProtectedRoute>
         ),
         children: [
+            {
+                index: true,
+                element: <LazyLoad component={AdminDashboardPageLazyLoadElement} />
+            },
             ...userRoute,
             ...courseRoute,
             ...requestRoute
