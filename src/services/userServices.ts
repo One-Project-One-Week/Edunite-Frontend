@@ -41,7 +41,7 @@ export const getCoursesByUserId = async (userId: string) => {
         const response = await API.get(`/users/${userId}/courses`);
         return response.data;
     } catch (error) {
-        throw new Error(`Error fetching courses by user ID: ${error}`);
+        // throw new Error(`Error fetching courses by user ID: ${error}`);
     }
 };
 

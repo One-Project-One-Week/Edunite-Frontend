@@ -18,6 +18,10 @@ export const login = async (credential: { email: string; password: string }) => 
     } catch (error) {
         // console.error("Error during login:", error);
         // throw error;
-        return {accessToken: "dummyAccess", user: dummyStudents[0]};
+
+        const data = credential.email === "lin205426@gmail.com" ? dummyTeachers[0] : dummyStudents[0];
+
+
+        return {accessToken: "dummyAccess", user: data};
     }
 };
