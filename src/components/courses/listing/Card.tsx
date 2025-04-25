@@ -1,17 +1,7 @@
 import Image from "@/assets/prof.svg"
+import { Course } from "@/types/Course";
 import { Link } from "react-router-dom";
 
-type Course = {
-  id: string;
-  title: string;
-  description: string;
-  author: string;
-  price: string;
-  discountedPrice: string;
-  duration: string;
-  tags: string[];
-  image: string;
-};
 
 export const CourseCard = ({ course }: { course: Course }) => {
   return (
@@ -34,10 +24,10 @@ export const CourseCard = ({ course }: { course: Course }) => {
         </div>
   
         <div className="text-sm text-gray-600">
-          By <strong>{course.author}</strong>
+          By <strong>{course.username}</strong>
         </div>
   
-        <div className="flex items-center justify-start text-sm flex-wrap gap-1 pt-1">
+        {/* <div className="flex items-center justify-start text-sm flex-wrap gap-1 pt-1">
           {course.tags.map((tag, i) => (
             <span
               key={i}
@@ -46,7 +36,7 @@ export const CourseCard = ({ course }: { course: Course }) => {
               {tag}
             </span>
           ))}
-        </div>
+        </div> */}
       </div>
     </div>
   </Link>
