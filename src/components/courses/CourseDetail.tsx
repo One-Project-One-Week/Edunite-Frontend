@@ -1,35 +1,17 @@
 import { useParams } from "react-router-dom";
 import React, { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { getCourseByIdQueryOptions } from "@/queries/courseQueryOptions";
+import Loading from "../Loading";
+import Image from "@/assets/prof.svg";
 
-const dummyCourses = [
-  {
-    id: "1",
-    title: "Introduction to Web Development",
-    description: "Learn the basics of HTML, CSS, and JavaScript to build your own websites.",
-    author: "John Doe",
-    duration: "6 weeks",
-    level: "Beginner",
-    price: 0,
-    image: "https://source.unsplash.com/800x400/?coding,technology",
-    tags: ["web", "html", "css", "js"],
-  },
-  {
-    id: "2",
-    title: "React for Beginners",
-    description: "Start building dynamic web applications with React.",
-    author: "Jane Smith",
-    duration: "4 weeks",
-    level: "Intermediate",
-    price: 49,
-    image: "https://source.unsplash.com/800x400/?react,javascript",
-    tags: ["react", "frontend", "hooks"],
-  },
-];
 
-const CourseDetail: React.FC = () => {
+const CourseDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const course = dummyCourses.find((c) => c.id === id);
+  const { data: course, isLoading } = useQuery(getCourseByIdQueryOptions(id!));
   const [showForm, setShowForm] = useState(false);
+
+  if (isLoading) return <div className="text-center py-10 text-gray-500"><Loading /></div>;
 
   if (!course) return <div className="text-center py-10 text-gray-500">Course not found.</div>;
 
@@ -38,56 +20,56 @@ const CourseDetail: React.FC = () => {
   }
   const closeModal = () => {
     setShowForm(false);
-   };
-   const handleFormSubmit = (e: React.FormEvent) => {
+  };
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowForm(false);
     window.alert("Enrollment successful!");
-   }
+  }
   return (
     <div className="max-w-6xl mx-auto px-4 py-10 space-y-4">
       {/* Banner */}
       <div className="w-full h-64 rounded-xl overflow-hidden shadow-md">
         <img
-          src={course.image}
+          src={Image}
           alt={course.title}
           className="w-full h-full object-cover"
         />
       </div>
 
-      {/* Title and Description */}
-      <div className="space-y-4">
-        <h1 className="text-3xl font-bold text-purple-700">{course.title}</h1>
-        <p className="text-gray-700 text-lg leading-relaxed">{course.description}</p>
+      <div className="space-y-8">
+        {/* Title and Description */}
+        <div className="space-y-4">
+          <h1 className="text-4xl font-extrabold text-purple-800">{course.title}</h1>
+          <p className="text-gray-700 text-lg leading-relaxed">{course.description}</p>
+        </div>
+
+        {/* Instructor & Tags */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-purple-50 p-4 rounded-xl shadow-sm">
+          <div>
+            <span className="font-semibold text-gray-800">👨‍🏫 Instructor:</span> {course.username}
+          </div>
+          <div>
+            <span className="font-semibold text-gray-800">👥 Enrolled Students:</span> {course.student_quantity.join(", ")}
+          </div>
+          <div>
+            <span className="font-semibold text-gray-800">🏷️ Category:</span> {course.course_category}
+          </div>
+        </div>
+
+        {/* Schedule Info */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 bg-purple-50 p-4 rounded-xl shadow-sm">
+          <div>
+            <span className="font-semibold text-gray-800">📅 Start Date:</span> {course.start_date}
+          </div>
+          <div>
+            <span className="font-semibold text-gray-800">🕒 Schedule:</span> {course.schedule}
+          </div>
+        </div>
       </div>
 
-      {/* Tags and Info */}
-      <div className="flex flex-wrap gap-4 text-sm text-gray-600">
-        <div>
-          <span className="font-semibold">Instructor:</span> {course.author}
-        </div>
-        <div>
-          <span className="font-semibold">Duration:</span> {course.duration}
-        </div>
-        <div>
-          <span className="font-semibold">Level:</span> {course.level}
-        </div>
-        <div>
-          <span className="font-semibold">Price:</span> {course.price === 0 ? "Free" : `$${course.price}`}
-        </div>
-      </div>
 
-      {/* Tags */}
-      <div className="flex flex-wrap gap-2 mt-4">
-        {course.tags.map((tag, index) => (
-          <span
-            key={index}
-            className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-xs font-medium"
-          >
-            #{tag}
-          </span>
-        ))}
-      </div>
+
 
       {/* Action */}
       <div className="pt-6">
