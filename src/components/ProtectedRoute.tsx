@@ -1,15 +1,20 @@
+import useUserStore from "@/store/userStore";
 import { Navigate, useLocation } from "react-router-dom";
-// import { useAuth } from "@/context/AuthContext";
 
-const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
-//   const { isAuthenticated } = useAuth();
+const ProtectedRoute = ({ children, role }: { children: React.ReactNode, role: string }) => {
+
+  const {user} = useUserStore();
   const location = useLocation();
 
-//   if (!isAuthenticated) {
-//     return <Navigate to="/" replace state={{ from: location }} />;
-//   }
+  if (!user) {
+    return <Navigate to="/login" state={{ from: location }} replace />;
+  }
 
-  return <>{children}</>;
+  if (role &&  role !== user.role) {
+    return <Navigate to="/" replace />;
+  }
+
+  return children;
 };
 
 export default ProtectedRoute;

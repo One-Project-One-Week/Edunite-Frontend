@@ -10,7 +10,7 @@ const adminRoute = [
     {
         path: '/admin',
         element: (
-            <ProtectedRoute>
+            <ProtectedRoute role="Stundent">
                 <LazyLoad component={AdminLayoutLazyLoadElement} />
             </ProtectedRoute>
         ),

@@ -10,6 +10,8 @@ export const OurCoursesDetailPageLazyLoadElement = lazy(() => import("../pages/C
 export const PublicLayoutLazyLoadElement = lazy(() => import("../layouts/PublicLayout"));
 export const AdminLayoutLazyLoadElement = lazy(() => import("../layouts/AdminLayout"));
 export const DashboardLayoutLazyLoadElement = lazy(() => import("../layouts/DashboardLayout"));
+export const TeacherLayoutLazyLoadElement = lazy(() => import("../layouts/TeacherLayout"));
+export const StudentLayoutLazyLoadElement = lazy(() => import("../layouts/StudentLayout"));
 
 //Auth pages
 export const LoginPageLazyLoadElement = lazy(() => import("../features/auth/pages/LoginPage"));
