@@ -67,6 +67,42 @@ export default function StuSignUpForm() {
                                 </FormItem>
                             )}
                         />
+                        {/* Grade */}
+                        <FormField
+                            control={form.control}
+                            name="name"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel className="text-gray-700">Grade</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder="Enter your grade"
+                                            {...field}
+                                            className="border border-gray-300 rounded-lg px-4 py-2 w-full"
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                        {/* Phone Number */}
+                        <FormField
+                            control={form.control}
+                            name="name"
+                            render={({ field }) => (
+                                <FormItem>
+                                    <FormLabel className="text-gray-700">Name</FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            placeholder="Enter your name"
+                                            {...field}
+                                            className="border border-gray-300 rounded-lg px-4 py-2 w-full"
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
 
                         {/* Email */}
                         <FormField
@@ -107,25 +143,7 @@ export default function StuSignUpForm() {
                             )}
                         />
 
-                        {/* Confirm Password */}
-                        <FormField
-                            control={form.control}
-                            name="confirmPassword"
-                            render={({ field }) => (
-                                <FormItem>
-                                    <FormLabel className="text-gray-700">Confirm Password</FormLabel>
-                                    <FormControl>
-                                        <Input
-                                            type="password"
-                                            placeholder="Confirm your password"
-                                            {...field}
-                                            className="border border-gray-300 rounded-lg px-4 py-2 w-full"
-                                        />
-                                    </FormControl>
-                                    <FormMessage />
-                                </FormItem>
-                            )}
-                        />
+                      
 
                         {/* Submit Button */}
                         <Button

@@ -1,5 +1,7 @@
+import { Stundent } from "./User";
+
 export type Credential = {
-    username: string;
+    email: string;
     password: string;
 }
 
@@ -11,7 +13,7 @@ export type UserInfo = {
 
 export type LoginResponse = {
      accessToken: string,
-     user: UserInfo
+     user: Stundent
 }
 
 export type RegisterTeacherPayload = {

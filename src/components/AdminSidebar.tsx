@@ -6,7 +6,6 @@ import {
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar";
-import AdminDashboard from "@/features/admin/components/Dashboard";
 import { Outlet } from "react-router-dom";
 
 const AdminSidebar = () => {
@@ -23,8 +22,6 @@ const AdminSidebar = () => {
             </div>
           </header>
           <Outlet />
-          {/* Admin Dashboard Here */}
-         <AdminDashboard/>
           </div>
         </SidebarInset>
       </SidebarProvider>

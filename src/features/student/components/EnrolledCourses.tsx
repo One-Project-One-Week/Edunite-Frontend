@@ -39,7 +39,7 @@ const courses = [
     instructor: "David Chen",
     date: "January 15, 2025",
   },
-];
+]; 
 
 const EnrolledCourses = () => {
   return (
