@@ -28,8 +28,9 @@ export default function Header() {
           <SelectContent>
             <SelectGroup>
               <SelectItem value="all-user">All Users</SelectItem>
-              <SelectItem value="seller">Seller</SelectItem>
-              <SelectItem value="user">User</SelectItem>
+              <SelectItem value="seller">Admin</SelectItem>
+              <SelectItem value="user">Teacher</SelectItem>
+              <SelectItem value="user">Student</SelectItem>
             </SelectGroup>
           </SelectContent>
         </Select>

@@ -19,7 +19,7 @@ export const useLoginOption = (): MutationOptions<
     onSuccess: (data) => {
         queryClient.invalidateQueries({ queryKey: ["auth"] });
         setAccessToken(data.accessToken)
-        setUser(data.user);
+        setUser(data.user)
       },
   };
 };

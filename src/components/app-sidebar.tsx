@@ -66,8 +66,12 @@ const data = {
           url: "/admin/users",
         },
         {
-          title: "Sellers",
-          url: "/admin/verified-posts",
+          title: "Teachers",
+          url: "/admin/teachers",
+        },
+        {
+          title: "Students",
+          url: "/admin/students",
         },
       ],
     },

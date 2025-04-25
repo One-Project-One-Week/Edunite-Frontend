@@ -1,18 +1,18 @@
 import PaginationComponent from "@/components/PaginationComponent"
 import Header from "../components/users/allUsers/Header"
-import UserTable from "../components/users/allUsers/UserTable"
 import AdminBreadCrumb from "@/components/AdminBreadCrumb"
+import TeacherTable from "../components/users/teachers/TeacherTable"
 
-export default function AllUserPage() {
+export default function AllTeacherPage() {
 
 
 
   return (
     <div>
       <h1 className="px-5 mb-5 text-xl font-bold">Users</h1>
-      <AdminBreadCrumb currentPageTitle="Users"/>
+      <AdminBreadCrumb currentPageTitle="Teachers"/>
       <Header />
-      <UserTable />
+      <TeacherTable />
       <PaginationComponent />
     </div>
   )

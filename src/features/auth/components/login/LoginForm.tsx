@@ -1,7 +1,8 @@
 import z from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
 
 import svg from "@/assets/prof.svg";
 import { Button } from "@/components/ui/button";
@@ -26,19 +27,27 @@ const loginSchema = z.object({
 
 export default function LoginForm() {
 
+const navigate = useNavigate()
+
 
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
   });
-
+  const login = useMutation(useLoginOption())
   function onSubmit(data: z.infer<typeof loginSchema>) {
     console.log(data);
-    const login = useMutation(useLoginOption())
 
-    login.mutate({ email: data.email, password: data.password });
 
+    login.mutate({ email: data.email, password: data.password }, {
+      onSuccess : (data) => {
+     if(data.user.role === "Stundent") {
+      navigate("/dashboard/student")
+     }
+    }
+   
+
+  })
   }
-
 
   return (
     <section className="grid w-lvw h-lvh grid-cols-2 bg-white-lilac-50">
