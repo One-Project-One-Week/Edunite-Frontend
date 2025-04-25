@@ -18,8 +18,10 @@ export const useLoginOption = (): MutationOptions<
     mutationFn: login,
     onSuccess: (data) => {
         queryClient.invalidateQueries({ queryKey: ["auth"] });
-        setAccessToken(data.accessToken)
-        setUser(data.user)
+        setAccessToken(data.accessToken);
+        setUser(data.user);
+        localStorage.removeItem('User');
+        localStorage.setItem('User', JSON.stringify(data.user));
       },
   };
 };

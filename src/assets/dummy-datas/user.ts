@@ -1,5 +1,6 @@
 import { Teacher } from "@/types/User";
 import { Stundent } from "@/types/User";
+import { dummyCourses } from "./course";
 
 export const dummyTeachers: Teacher[] = [
     {
@@ -8,7 +9,7 @@ export const dummyTeachers: Teacher[] = [
       email: "alice@school.com",
       phone_number: 1234567890,
       role: "Teacher",
-      created_courses: [],
+      created_courses: dummyCourses.filter((course) => course.user_id === "1"),
       subjects_type: "profession",
       subjects: [{ name: "Software Engineering" }]
     },
@@ -18,7 +19,7 @@ export const dummyTeachers: Teacher[] = [
       email: "bob@school.com",
       phone_number: 1234567891,
       role: "Teacher",
-      created_courses: [],
+      created_courses: dummyCourses.filter((course) => course.user_id === "2"),
       subjects_type: "basic",
       subjects: [{ name: "Mathematics", grade: "10" }]
     },
@@ -28,7 +29,7 @@ export const dummyTeachers: Teacher[] = [
       email: "clara@school.com",
       phone_number: 1234567892,
       role: "Teacher",
-      created_courses: [],
+      created_courses: dummyCourses.filter((course) => course.user_id === "3"),
       subjects_type: "profession",
       subjects: [{ name: "Graphic Design" }]
     },
@@ -38,7 +39,7 @@ export const dummyTeachers: Teacher[] = [
       email: "david@school.com",
       phone_number: 1234567893,
       role: "Teacher",
-      created_courses: [],
+      created_courses: dummyCourses.filter((course) => course.user_id === "4"),
       subjects_type: "basic",
       subjects: [{ name: "English", grade: "9" }]
     },
@@ -48,7 +49,7 @@ export const dummyTeachers: Teacher[] = [
       email: "eva@school.com",
       phone_number: 1234567894,
       role: "Teacher",
-      created_courses: [],
+      created_courses: dummyCourses.filter((course) => course.user_id === "5"),
       subjects_type: "profession",
       subjects: [{ name: "AI & ML" }]
     }
@@ -61,7 +62,7 @@ export const dummyStudents: Stundent[] = [
       email: "frank@student.com",
       phone_number: 9876543210,
       role: "Stundent",
-      enrolled_courses: [],
+      enrolled_courses: dummyCourses.filter((course) => course.student_quantity.includes("6")),
       grade: "10"
     },
     {
@@ -70,7 +71,7 @@ export const dummyStudents: Stundent[] = [
       email: "grace@student.com",
       phone_number: 9876543211,
       role: "Stundent",
-      enrolled_courses: [],
+      enrolled_courses: dummyCourses.filter((course) => course.student_quantity.includes("7")),
       grade: "11"
     },
     {
@@ -79,7 +80,7 @@ export const dummyStudents: Stundent[] = [
       email: "henry@student.com",
       phone_number: 9876543212,
       role: "Stundent",
-      enrolled_courses: [],
+      enrolled_courses: dummyCourses.filter((course) => course.student_quantity.includes("8")),
       grade: "12"
     },
     {
@@ -88,7 +89,7 @@ export const dummyStudents: Stundent[] = [
       email: "ivy@student.com",
       phone_number: 9876543213,
       role: "Stundent",
-      enrolled_courses: [],
+      enrolled_courses: dummyCourses.filter((course) => course.student_quantity.includes("9")),
       grade: "9"
     },
     {
@@ -97,7 +98,7 @@ export const dummyStudents: Stundent[] = [
       email: "jake@student.com",
       phone_number: 9876543214,
       role: "Stundent",
-      enrolled_courses: [],
+      enrolled_courses: dummyCourses.filter((course) => course.student_quantity.includes("10")),
       grade: "8"
     }
   ];

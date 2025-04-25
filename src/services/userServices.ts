@@ -45,6 +45,7 @@ export const getAllStudents = async () => {
 };
 
 export const getCoursesByUserId = async (userId: string) => {
+
   try {
     const response = await API.get(`/users/${userId}/courses`);
     return response.data;

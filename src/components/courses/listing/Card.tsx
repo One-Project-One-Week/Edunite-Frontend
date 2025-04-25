@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 export const CourseCard = ({ course }: { course: Course }) => {
   return (
-    <Link to={`/our-courses/${course.id}`} className="block">
+    <Link to={`/student/our-courses/${course.id}`} className="block">
       <div className="rounded-xl shadow-md overflow-hidden w-[280px] h-[420px] bg-white flex flex-col justify-between">
         <img
           src={Image}

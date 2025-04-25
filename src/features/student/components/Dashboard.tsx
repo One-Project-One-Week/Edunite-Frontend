@@ -19,7 +19,7 @@ const certificates = [
 
 export default function StudentDashboard() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 bg-gradient-to-br from-white to-purple-50 min-h-screen">
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 bg-gradient-to-br from-white to-purple-50">
 
       {/* Left - Overview Cards */}
       <div className="lg:col-span-1 space-y-6">

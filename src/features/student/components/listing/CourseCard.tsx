@@ -15,7 +15,7 @@ type Course = {
 
 export const CourseCard = ({ course }: { course: Course }) => {
   return (
-    <Link to={`/dashboard/student/listing/${course.id}`} className="block">
+    <Link to={`/student/listing/${course.id}`} className="block">
     <div className="rounded-xl shadow-md overflow-hidden w-[280px] h-[420px] bg-white flex flex-col justify-between">
       <img
         src={Image}
