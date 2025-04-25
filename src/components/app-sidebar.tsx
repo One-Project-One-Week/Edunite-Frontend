@@ -1,23 +1,23 @@
 import * as React from "react";
 import { Library, SproutIcon, BookOpenText, Users } from "lucide-react";
 
-import { NavMain} from "@/components/nav-main";
-
+import { NavMain } from "@/components/nav-main";
+import Image from "@/assets/logo_sidebar.png"
 import {
   Sidebar,
   SidebarContent,
   SidebarHeader,
-  SidebarMenuButton,
+  
 } from "@/components/ui/sidebar";
-import { Link } from "react-router-dom";
+
 
 // This is sample data.
 const data = {
-  logo:{
-      title: "Edunite",
-      url: "/admin",
-      icon: SproutIcon,
-    },
+  logo: {
+    title: "Edunite",
+    url: "/admin",
+    icon: SproutIcon,
+  },
   navMain: [
     {
       title: "Courses",
@@ -66,8 +66,12 @@ const data = {
           url: "/admin/users",
         },
         {
-          title: "Sellers",
-          url: "/admin/verified-posts",
+          title: "Teachers",
+          url: "/admin/teachers",
+        },
+        {
+          title: "Students",
+          url: "/admin/students",
         },
       ],
     },
@@ -78,12 +82,14 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
       <SidebarHeader>
-        <Link to="/admin">
-          <SidebarMenuButton tooltip={data.logo.title} className="flex align-center justify-center ">
-            {data.logo.icon && <data.logo.icon className="text-purple-heart-600" />}
-                <span className="font-bold text-xl tracking-[0.2rem] text-purple-heart-600">{data.logo.title}</span>
-          </SidebarMenuButton>
-        </Link>
+
+        <img
+          src={Image}
+          alt="EdUnite Logo"
+          className="h-14 w-auto flex items-center  justify-center mx-auto mb-4"
+        />
+
+
       </SidebarHeader>
       <SidebarContent >
         <NavMain items={data.navMain} />

@@ -1,7 +1,5 @@
 import {create} from 'zustand';
 import { BaseUser, Stundent, Teacher } from '@/types/User';
-import { dummyStudents } from '@/assets/dummy-datas/user';
-
 type UserStore = {
     user: Stundent | Teacher | BaseUser,
     setUser: (user: Stundent | Teacher) => void,
@@ -9,7 +7,7 @@ type UserStore = {
 }
 
 const useUserStore = create<UserStore>((set) => ({
-    user: dummyStudents[0] as Stundent | Teacher | BaseUser,
+    user: JSON.parse(localStorage.getItem("User") || '{}') as Stundent | Teacher | BaseUser,
     setUser: (user: Stundent | Teacher | BaseUser) => {
         set({ user})
     },

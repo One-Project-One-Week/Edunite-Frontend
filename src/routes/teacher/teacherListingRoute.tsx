@@ -6,25 +6,25 @@ import {  TeacherCourseDetailPageLazyLoadElement, TeacherDashboardPageLazyLoadEl
 
 const teacherListingRoute = [
     { 
-        path: "/dashboard/teacher/profile",
+        path: "/teacher/profile",
         element: <LazyLoad component={TeacherProfilePageLazyLoadElement} />
     },
    
     {
-        path: "/dashboard/teacher/created-courses/:courseId",
+        path: "/teacher/created-courses/:courseId",
         element: <LazyLoad component={TeacherCourseDetailPageLazyLoadElement} />
     },
     
     {
-        path: "/dashboard/teacher",
+        index: true,
         element: <LazyLoad component={TeacherDashboardPageLazyLoadElement} />
     },
     // {
-    //     path: "/dashboard/student/enroll-form",
+    //     path: "/student/enroll-form",
     //     element: <LazyLoad component={StudentEnrollFormLazyLoadElement} />
     // },
     // {
-    //     path: "/dashboard/student/course-request-form",
+    //     path: "/student/course-request-form",
     //     element: <LazyLoad component={StudentCourseRequestFormLazyLoadElement} />
     // },
 ]
