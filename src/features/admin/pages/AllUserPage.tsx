@@ -1,7 +1,7 @@
-import PaginationComponent from "@/components/PaginationComponent"
-import Header from "../components/users/allUsers/Header"
-import UserTable from "../components/users/allUsers/UserTable"
 import AdminBreadCrumb from "@/components/AdminBreadCrumb"
+import PaginationComponent from "@/components/PaginationComponent"
+import UserTable from "../components/users/allUsers/UserTable"
+import UserHeader from "../components/users/allUsers/UserHeader"
 
 export default function AllUserPage() {
 
@@ -11,7 +11,7 @@ export default function AllUserPage() {
     <div>
       <h1 className="px-5 mb-5 text-xl font-bold">Users</h1>
       <AdminBreadCrumb currentPageTitle="Users"/>
-      <Header />
+      <UserHeader />
       <UserTable />
       <PaginationComponent />
     </div>

@@ -13,7 +13,9 @@ export default function TeacherHeader() {
             className=" focus-visible:ring-mint-julep-600 focus:outline-none ps-10 focus:ring-0"
             placeholder="Search"
           />
+        
         </div>
+
        
       </div>
     </header>
