@@ -49,10 +49,10 @@ const data = {
           title: "Course Requests",
           url: "/admin/request/create-course-requests",
         },
-        {
-          title: "Teacher Requests",
-          url: "/admin/request/teacher-requests",
-        },
+        // {
+        //   title: "Teacher Requests",
+        //   url: "/admin/request/teacher-requests",
+        // },
       ],
     },
     {
