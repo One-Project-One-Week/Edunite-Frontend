@@ -15,13 +15,13 @@ export const getAllCourses = async () => {
 
 export const getCourseById = async (courseId: string) => {
     try {
-        // const response = await API.get(`/courses/${courseId}`);
-        // return response.data;
-        const data = getDummyCourseById(courseId);
-        return data;
+        const response = await API.get(`/courses/${courseId}`);
+        return response.data;
+        
     } catch (error) {
        
-       throw new Error(`Error fetching course by ID: ${error}`);
+        const data = getDummyCourseById(courseId);
+        return data;
     }
 };
 

@@ -2,7 +2,7 @@ import {create} from 'zustand';
 import { BaseUser, Stundent, Teacher } from '@/types/User';
 type UserStore = {
     user: Stundent | Teacher | BaseUser,
-    setUser: (user: Stundent | Teacher) => void,
+    setUser: (user: Stundent | Teacher | BaseUser) => void,
     clearUser: () => void,
 }
 

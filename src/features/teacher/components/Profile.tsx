@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import Logout from "@/components/Logout";
 
 const TeacherProfile = () => {
   return (
@@ -39,10 +40,11 @@ const TeacherProfile = () => {
           </div>
 
           {/* Edit Button */}
-          <div className="mt-8 flex justify-center">
-            <Button className="bg-purple-700 text-white hover:bg-purple-600 px-6 py-2">
+          <div className="mt-8 flex justify-between">
+            <Button className="bg-purple-700 text-white hover:bg-purple-600 px-6 py-4">
               Edit Profile
             </Button>
+            <Logout />
           </div>
         </CardContent>
       </Card>

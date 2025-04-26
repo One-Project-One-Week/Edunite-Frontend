@@ -2,6 +2,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import Logout from "@/components/Logout";
 
 const StudentProfile = () => {
 
@@ -50,6 +52,12 @@ const StudentProfile = () => {
             No courses enrolled
           </div>
         </div>
+        <div className="mt-8 flex justify-between">
+            <Button className="bg-purple-700 text-white hover:bg-purple-600 px-6 py-4">
+              Edit Profile
+            </Button>
+            <Logout />
+          </div>
       </div>
     </CardContent>
   </Card>

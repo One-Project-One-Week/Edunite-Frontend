@@ -34,7 +34,7 @@ const studentListingRoute = [
   },
 
   {
-    path: `/student/profile/enrolled-courses/{id}`,
+    path: `/student/enrolled-courses/:id`,
     element: (
       <LazyLoad component={StudentEnrolledCoursesDetailsPageLazyLoadElement} />
     ),

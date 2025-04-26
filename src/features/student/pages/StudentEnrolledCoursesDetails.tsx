@@ -1,7 +1,9 @@
-import React from 'react'
+import { EnrolledCourseDetail } from "../components/EnrolledCourseDetail"
 
 export default function StudentEnrolledCoursesDetails() {
   return (
-    <div>StudentEnrolledCoursesDetails</div>
+    <div>
+      <EnrolledCourseDetail />
+    </div>
   )
 }

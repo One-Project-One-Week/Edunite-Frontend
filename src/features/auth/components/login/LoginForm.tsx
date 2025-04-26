@@ -42,8 +42,6 @@ export default function LoginForm() {
         data.user.role === "Stundent" ? navigate("/student") : data.user.role === "Teacher" ? navigate("/teacher") : navigate("/admin")
       }
     });
-
-
   }
 
   return (

@@ -50,6 +50,7 @@ export const createCourseByUserIdOptions = (): MutationOptions<
             createCourseByUserId(user_id, course),
         onSuccess: ({ user_id }) => {
             queryClient.invalidateQueries({ queryKey: ["users", user_id, "courses"] });
+            window.location.reload();
         },
         onError: (error, { user_id }, context) => {
             console.error("Error creating course:", error);
