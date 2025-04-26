@@ -49,7 +49,7 @@ const StudentProfile = () => {
         <div>
           <Label className="text-sm text-purple-700">Enrolled Courses</Label>
           <div className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 text-gray-800 mt-1 shadow-sm">
-            No courses enrolled
+           5
           </div>
         </div>
         <div className="mt-8 flex justify-between">

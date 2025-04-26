@@ -22,11 +22,11 @@ export default function Certificate({ certificate }: { certificate: {
           <CheckCircle className="mx-auto text-green-500 w-12 h-12" />
           <h1 className="text-3xl font-bold text-purple-800">Certificate of Completion</h1>
           <p className="text-lg text-gray-700">This is to certify that</p>
-          <p className="text-2xl font-semibold text-purple-700">{certificate.studentName}</p>
+          <p className="text-2xl font-semibold text-purple-700">Frank Miles</p>
           <p className="text-lg text-gray-700">has successfully completed the course</p>
-          <p className="text-xl font-semibold text-purple-800">"{certificate.courseTitle}"</p>
+          <p className="text-xl font-semibold text-purple-800">"Creative Writing"</p>
           <div className="text-sm text-gray-500 mt-2">
-            <p>Instructor: {certificate.instructor}</p>
+            <p>Instructor: David Green</p>
             <p>Completed on: {certificate.date}</p>
           </div>
           <div className="mt-4 flex justify-end">

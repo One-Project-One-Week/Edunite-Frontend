@@ -21,8 +21,8 @@ export default function StudentDashboard() {
   ];
 
   const certificates = [
-    { course: "HTML & CSS", date: "2024-12-15" },
-    { course: "JavaScript Basics", date: "2025-01-20" },
+    { course: "Creative Writing", date: "2025-4-24" },
+   
   ];
 
   return (

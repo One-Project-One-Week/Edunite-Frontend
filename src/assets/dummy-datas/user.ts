@@ -34,7 +34,7 @@ export const dummyTeachers: Teacher[] = [
       subjects: [{ name: "Graphic Design" }]
     },
     {
-      id: "4",
+      id: "4", 
       name: "David Green",
       email: "david@school.com",
       phone_number: 1234567893,
