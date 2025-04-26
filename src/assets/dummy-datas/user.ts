@@ -6,7 +6,7 @@ export const dummyTeachers: Teacher[] = [
     {
       id: "1",
       name: "Alice Johnson",
-      email: "alice@school.com",
+      email: "alicejson@gmail.com",
       phone_number: 1234567890,
       role: "Teacher",
       created_courses: dummyCourses.filter((course) => course.user_id === "1"),
@@ -59,7 +59,7 @@ export const dummyStudents: Stundent[] = [
     {
       id: "6",
       name: "Frank Miles",
-      email: "frank@student.com",
+      email: "frankmls@gmail.com",
       phone_number: 9876543210,
       role: "Stundent",
       enrolled_courses: dummyCourses.filter((course) => course.student_quantity.includes("6")),

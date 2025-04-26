@@ -37,13 +37,13 @@ const StudentProfile = () => {
         <div>
           <Label className="text-sm text-purple-700">Email</Label>
           <div className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 text-gray-800 mt-1 shadow-sm">
-            frank@student.com
+            frankmls@gmail.com
           </div>
         </div>
         <div>
           <Label className="text-sm text-purple-700">Phone Number</Label>
           <div className="bg-gray-50 border border-gray-200 rounded-lg px-4 py-2 text-gray-800 mt-1 shadow-sm">
-            9876543210
+            09582001774
           </div>
         </div>
         <div>

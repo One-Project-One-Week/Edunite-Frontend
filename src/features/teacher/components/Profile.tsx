@@ -8,6 +8,7 @@ import { Mail, Phone, BookOpen, BookUser, BadgeCheck } from "lucide-react"
 import Logout from "@/components/Logout"
 import useUserStore from "@/store/userStore"
 
+
 const TeacherProfile = () => {
 
   const { user: teacher } = useUserStore();
