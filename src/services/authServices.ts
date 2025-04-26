@@ -1,4 +1,5 @@
 import API from "@/api/apiConfig";
+import { dummyAllUser } from "@/assets/dummy-datas/allUser";
 import { dummyStudents, dummyTeachers } from "@/assets/dummy-datas/user";
 
 export const register = async (data: {
@@ -23,7 +24,20 @@ export const login = async (credential: { email: string; password: string }) => 
         // console.error("Error during login:", error);
         // throw error;
 
-        const data = credential.email === "lin205426@gmail.com" ? dummyTeachers[0] : dummyStudents[0];
+        let data;
+        switch (credential.email) {
+          case "alice@school.com":
+            data = dummyTeachers[0];
+            break;
+          case "frank@student.com":
+            data = dummyStudents[0];
+            break;
+          case "admin@gmail.com":
+            data = dummyAllUser[0];
+          break;
+          default: 
+            throw new Error("Invalid email or password");
+        }
 
 
         return {accessToken: "dummyAccess", user: data};

@@ -1,97 +1,101 @@
-// pages/dashboard/admin/AdminDashboard.tsx
-import { useState, useEffect } from 'react';
+import { dummyCourses } from '@/assets/dummy-datas/course';
 import { Link } from 'react-router-dom';
-// Simulating API call
-type StudentRequest = {
-    id: string;
-    user_id: string;
-    username: string;
-    title: string;
-    course_category: string;
-    student_quantity: string[]; // still using string[] for dummy; can update later
-  };
-  
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
+import { Eye } from 'lucide-react';
+import { dummyStudentRequests } from '../data/studentRequestData';
+import { ScrollArea } from '@/components/ui/scroll-area';
+
 const AdminDashboard = () => {
-  const [studentRequests, setStudentRequests] = useState<StudentRequest[]>([]);
-
-  useEffect(() => {
-    // Dummy data
-    const dummyRequests: StudentRequest[] = [
-      {
-        id: "req-001",
-        user_id: "stu-001",
-        username: "Alice Lee",
-        title: "React Fundamentals",
-        course_category: "Frontend Development",
-        student_quantity: ["stu-001", "stu-002", "stu-003"],
-      },
-      {
-        id: "req-002",
-        user_id: "stu-004",
-        username: "Ben Carter",
-        title: "Advanced JavaScript",
-        course_category: "Frontend Development",
-        student_quantity: ["stu-004", "stu-005"],
-      },
-      {
-        id: "req-003",
-        user_id: "stu-006",
-        username: "Carla Smith",
-        title: "UI/UX Design Basics",
-        course_category: "Design",
-        student_quantity: ["stu-006"],
-      },
-    ];
-
-    setStudentRequests(dummyRequests);
-  }, []);
-
+  const courses = dummyCourses;
 
   return (
-    <div className="bg-white min-h-screen p-8">
-      <h1 className="text-4xl font-extrabold text-purple-700 mb-6">Admin Dashboard</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
-        {/* Total Students */}
-        <div className="p-6 bg-purple-100 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-purple-700 mb-4">Total Students</h3>
-          <p className="text-3xl font-bold text-purple-800">120</p> {/* Example number */}
+    <div className="bg-gray-50 p-8">
+      <h1 className="text-4xl font-extrabold text-purple-heart-700 mb-8">Admin Dashboard</h1>
+      
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        <div className="p-6 bg-gradient-to-r from-purple-heart-600 to-purple-heart-400 text-white rounded-lg shadow-lg">
+          <h3 className="text-lg font-medium mb-2">Total Students</h3>
+          <p className="text-4xl font-bold">{courses.reduce((total, request) => total + request.student_quantity.length, 0)}</p>
         </div>
-
-        {/* Total Courses */}
-        <div className="p-6 bg-purple-100 rounded-lg shadow-lg">
-          <h3 className="text-xl font-semibold text-purple-700 mb-4">Total Courses</h3>
-          <p className="text-3xl font-bold text-purple-800">15</p> {/* Example number */}
+        <div className="p-6 bg-gradient-to-r from-purple-heart-600 to-purple-heart-400 text-white rounded-lg shadow-lg">
+          <h3 className="text-lg font-medium mb-2">Total Courses</h3>
+          <p className="text-4xl font-bold">{courses.length}</p>
+        </div>
+        <div className="p-6 bg-gradient-to-r from-purple-heart-600 to-purple-heart-400 text-white rounded-lg shadow-lg">
+          <h3 className="text-lg font-medium mb-2">Pending Requests</h3>
+          <p className="text-4xl font-bold">
+            {courses.filter((cor) => cor.status === "pending").length + dummyStudentRequests.filter((cor) => cor.status === "pending").length}
+          </p>
         </div>
       </div>
 
-      {/* Student Requests Table */}
-      <div className="bg-white p-6 rounded-lg shadow-lg">
-        <h3 className="text-2xl font-semibold text-purple-700 mb-4">Student Requests</h3>
+      <div className="bg-white p-6 rounded-lg shadow-lg mb-8">
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Course Requests</h3>
         <div className="overflow-x-auto">
-          <table className="min-w-full table-auto">
-            <thead>
-              <tr className="bg-purple-100 text-left">
-                <th className="px-4 py-2 text-sm font-medium text-purple-700">Title</th>
-                <th className="px-4 py-2 text-sm font-medium text-purple-700">Requested By</th>
-                <th className="px-4 py-2 text-sm font-medium text-purple-700">Category</th>
-                <th className="px-4 py-2 text-sm font-medium text-purple-700">Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {studentRequests.map((request) => (
-                <tr key={request.id} className="border-b">
-                  <td className="px-4 py-2">{request.title}</td>
-                  <td className="px-4 py-2">{request.username}</td>
-                  <td className="px-4 py-2">{request.course_category}</td>
-                  <td className="px-4 py-2">
-                    <Link to={`/admin/requests/${request.id}`} className="text-purple-600 hover:text-purple-800">
+          <Table className="min-w-full">
+            <TableHeader>
+              <TableRow>
+                <TableHead>Title</TableHead>
+                <TableHead>Requested By</TableHead>
+                <TableHead>Category</TableHead>
+                <TableHead>Action</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
+              {courses.filter((cor) => cor.status === "pending").map((request) => (
+                <TableRow key={request.id}>
+                  <TableCell>{request.title}</TableCell>
+                  <TableCell>{request.username}</TableCell>
+                  <TableCell>{request.course_category}</TableCell>
+                  <TableCell>
+                    <Link
+                      to={`/admin/request/create-course-requests/${request.id}/${request.title}`}
+                      className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
+                    >
+                      <Eye className="w-4 h-4" />
                       View Details
                     </Link>
-                  </td>
-                </tr>
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
+        </div>
+      </div>
+
+      <div className="bg-white p-6 rounded-lg shadow-lg">
+        <h3 className="text-2xl font-semibold text-gray-800 mb-4">Student Requests</h3>
+        <div className="overflow-x-auto">
+          <ScrollArea className="h-40">
+            <Table className="min-w-full">
+              <TableHeader>
+                <TableRow>
+                  <TableHead>Title</TableHead>
+                  <TableHead>Requested By</TableHead>
+                  <TableHead>Category</TableHead>
+                  <TableHead>Action</TableHead>
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {dummyStudentRequests.filter((cor) => cor.status === "pending").map((request) => (
+                  <TableRow key={request.id}>
+                    <TableCell>{request.title}</TableCell>
+                    <TableCell>{request.username}</TableCell>
+                    <TableCell>{request.course_category}</TableCell>
+                    <TableCell>
+                      <Link
+                        to={`/admin/request/student-requests/${request.id}/${request.title}`}
+                        className="text-blue-600 hover:text-blue-800 flex items-center gap-2"
+                      >
+                        <Eye className="w-4 h-4" />
+                        View Details
+                      </Link>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </ScrollArea>
         </div>
       </div>
     </div>
