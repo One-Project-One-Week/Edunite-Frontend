@@ -19,7 +19,7 @@ export default function Navbar() {
             <NavigationMenuItem>
               <NavigationMenuLink href="/">
                 <img src={Logo}  alt="" className="w-40 h-24 bg-contain" />
-              </NavigationMenuLink>
+              </NavigationMenuLink> 
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
@@ -81,7 +81,7 @@ export default function Navbar() {
               <NavigationMenuLink href={`${user?.role === "Stundent"? "/student/profile" : user?.role === "Teacher"? "/teacher/profile" : "/login"}`}>
                 <Avatar className="w-10">
                   <AvatarImage
-                    src="https://i.pravatar.cc/150?img=3"
+                    src={user?.role === "Stundent" ? "https://i.pravatar.cc/150?img=6" : "https://i.pravatar.cc/150?img=5"}
                     alt="Student Avatar"
                   />
                   <AvatarFallback>ST</AvatarFallback>
