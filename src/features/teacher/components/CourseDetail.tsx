@@ -4,6 +4,7 @@ import { Course } from "@/types/Course";
 import { dummyStudents } from "@/assets/dummy-datas/user";
 import { Link } from "react-router-dom";
 import useUserStore from "@/store/userStore";
+import AdminBreadCrumb from "@/components/AdminBreadCrumb";
 
 export default function CourseDetail() {
   const { courseId } = useParams<{ courseId: string }>();
@@ -53,6 +54,7 @@ export default function CourseDetail() {
 
   return (
     <div className="w-full max-w-6xl mx-auto px-6 py-10 font-sans">
+      <AdminBreadCrumb  currentPageTitle="Detail"/>
       <div className="mb-10">
         <h1 className="text-5xl font-extrabold text-purple-900 tracking-tight mb-4 flex items-center space-x-4">
           <span>{course.title}</span>

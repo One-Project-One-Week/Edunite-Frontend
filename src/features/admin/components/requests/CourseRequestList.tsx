@@ -1,15 +1,15 @@
-import { CourseCreateRequest } from "@/types/Request";
 import { Book } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Course } from "@/types/Course";
 
 type CourseRequestListProps = {
-  request: CourseCreateRequest;
+  request: Course;
 };
 
 export default function CourseRequestList({ request }: CourseRequestListProps) {
   return (
-    <div className="bg-white rounded-2xl shadow-md p-6 w-full max-w-md hover:shadow-xl transition-transform transform hover:scale-105">
+    <div className="bg-white rounded-2xl flex flex-col justify-between shadow-md p-6 w-full max-w-md hover:shadow-xl transition-transform transform hover:scale-105">
       <div className="mb-4">
         <h2 className="text-2xl font-bold text-purple-heart-600 flex items-center gap-2">
           <Book className="w-6 h-6" />
@@ -17,7 +17,7 @@ export default function CourseRequestList({ request }: CourseRequestListProps) {
         </h2>
         <p className="text-sm text-gray-500 mt-1">
           Created by:{" "}
-          <span className="font-medium">{request.teacher_name}</span>
+          <span className="font-medium">{request.username}</span>
         </p>
         <p className="text-xs text-gray-400">
           {new Date(request.created_at).toLocaleDateString()}
@@ -42,7 +42,7 @@ export default function CourseRequestList({ request }: CourseRequestListProps) {
         </p>
         <p>
           <span className="font-medium">Target Students:</span>{" "}
-          {request.target_students?.length}
+          {request.student_quantity?.length}
         </p>
         <p>
           <span className="font-medium">Status:</span>

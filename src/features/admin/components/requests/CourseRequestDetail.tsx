@@ -1,13 +1,13 @@
 import { useNavigate, useParams } from "react-router-dom";
-import { courseCreateRequests } from "../../data/createCourseRequest";
 import { Button } from "@/components/ui/button";
 import { Book } from "lucide-react";
+import { dummyCourses } from "@/assets/dummy-datas/course";
 
 export default function CourseRequestDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const request = courseCreateRequests.find((request) => request?.id === id);
+  const request = dummyCourses.find((request) => request?.id === id);
   if (!request) {
     navigate("/admin");
   }
@@ -33,7 +33,7 @@ export default function CourseRequestDetail() {
         </span>
       </h1>
       <p className="text-sm text-gray-500 mt-2">
-        Submitted by <span className="font-medium">{request?.teacher_name}</span> on{" "}
+        Submitted by <span className="font-medium">{request?.username}</span> on{" "}
         <span>
           {request?.created_at
             ? new Date(request.created_at).toLocaleString("en-US", {
@@ -63,7 +63,7 @@ export default function CourseRequestDetail() {
 
       <div>
         <h3 className="text-purple-heart-700 font-semibold mb-1">Target Student Count</h3>
-        <p>{request?.target_students?.length}</p>
+        <p>{request?.student_quantity?.length}</p>
       </div>
 
       <div className="md:col-span-2">
