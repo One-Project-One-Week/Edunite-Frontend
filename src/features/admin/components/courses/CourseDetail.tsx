@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { dummyStudentRequests } from "../../data/studentRequestData";
-import { Clock, ArrowBigRight } from "lucide-react";
+import { Clock } from "lucide-react";
 
 export default function CourseDetail() {
     const { id } = useParams();

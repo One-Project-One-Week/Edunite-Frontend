@@ -4,7 +4,7 @@ import {
 } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Mail, Phone, BookOpen, BookUser, CalendarCheck, BadgeCheck } from "lucide-react"
+import { Mail, Phone, BookOpen, BookUser, BadgeCheck } from "lucide-react"
 import Logout from "@/components/Logout"
 import useUserStore from "@/store/userStore"
 
@@ -53,7 +53,7 @@ const TeacherProfile = () => {
                 Subjects
               </h3>
               <ul className="list-disc list-inside text-gray-700 text-lg">
-                {teacher.subjects.map((subj, idx) => (
+                {teacher.subjects.map((subj:any, idx:any) => (
                   <li key={idx}>{subj.name}</li>
                 ))}
               </ul>
