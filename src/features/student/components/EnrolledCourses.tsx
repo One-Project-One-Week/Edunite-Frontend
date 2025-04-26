@@ -18,7 +18,7 @@ const EnrolledCourses = () => {
 
       {/* Courses Grid */}
       <div className="grid gap-6 max-w-5xl mx-auto md:grid-cols-3">
-        {user.enrolled_courses.map((course) => (
+        {user.enrolled_courses.map((course: any) => (
          <Card key={course.id}  className="bg-gradient-to-br from-white via-purple-50 to-purple-100 border-purple-200 hover:shadow-lg transition h-full"
 >
          <CardContent className="p-6 flex flex-col gap-4 h-full">
