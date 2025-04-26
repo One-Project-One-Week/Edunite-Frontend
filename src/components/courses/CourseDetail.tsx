@@ -3,7 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getCourseByIdQueryOptions } from "@/queries/courseQueryOptions";
 import Loading from "../Loading";
 import Image from "@/assets/prof.svg";
-import { User, Users, Tag, Calendar, Clock, X } from "lucide-react";
+import { User, Users, Tag, Calendar, Clock} from "lucide-react";
 
 const CourseDetail = () => {
   const { id } = useParams<{ id: string }>();

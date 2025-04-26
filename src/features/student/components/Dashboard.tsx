@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { ClipboardCheck, GraduationCap } from "lucide-react";
 import useUserStore from "@/store/userStore";
 import { ScrollArea } from "@/components/ui/scroll-area";
@@ -8,7 +7,7 @@ export default function StudentDashboard() {
   const { user } = useUserStore();
   const enrolledCoursesData = user.enrolled_courses || [];
 
-  const enrolledCourses = enrolledCoursesData.map((course) => {
+  const enrolledCourses = enrolledCoursesData.map((course: any) => {
     return {
       title: course.title,
       instructor: course.username,
@@ -90,7 +89,7 @@ export default function StudentDashboard() {
             </h2>
             <ScrollArea className="h-64">
               <ul className="space-y-3">
-                {enrolledCourses.map((course, i) => (
+                {enrolledCourses.map((course:any, i:number) => (
                   <li
                     key={i}
                     className="border rounded p-4 flex justify-between items-center hover:bg-purple-50 transition-colors"

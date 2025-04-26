@@ -1,4 +1,4 @@
-import React from 'react';
+
 
 const Dashboard = () => {
   const user = { name: 'John Doe' }; // Replace with real user data
