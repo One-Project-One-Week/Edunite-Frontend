@@ -26,13 +26,13 @@ export const login = async (credential: { email: string; password: string }) => 
 
         let data;
         switch (credential.email) {
-          case "alice@school.com":
+          case "alicejson@gmail.com":
             data = dummyTeachers[0];
             break;
-          case "frank@student.com":
+          case "frankmls@gmail.com":
             data = dummyStudents[0];
             break;
-          case "admin@gmail.com":
+          case "edadmin@gmail.com":
             data = dummyAllUser[0];
           break;
           default: 
