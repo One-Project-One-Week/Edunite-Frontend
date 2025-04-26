@@ -1,36 +1,42 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import { Bell, FilePlus, BookOpen, Users } from "lucide-react";
+import { dummyCourses } from "@/assets/dummy-datas/course";
+import useUserStore from "@/store/userStore";
 
-const data = [
-  { name: "React", completion: 80 },
-  { name: "Next.js", completion: 65 },
-  { name: "Tailwind", completion: 90 },
-  { name: "Laravel", completion: 80 },
-  { name: "Node.js", completion: 65 },
-  { name: "Python", completion: 90 },
-];
 
-const courses = [
-  { title: "React Basics", students: 24 },
-  { title: "Advanced Next.js", students: 18 },
-  { title: "Tailwind UI", students: 30 },
-];
-
-const questions = [
-  { student: "John Doe", question: "Can you explain useEffect again?" },
-  { student: "Jane Smith", question: "How to deploy on Vercel?" },
-];
 
 export default function TeacherDashboard() {
+
+  const {user} = useUserStore();
+
+  const courseData = dummyCourses.filter((cor) => cor.user_id === user.id);
+  const approvedData = dummyCourses.filter((cor) => cor.user_id === user.id && cor.status === "approved");
+
+  const data = courseData.map((courser) => ({
+    name: courser.title,
+    completion: Math.floor(Math.random() * 100),
+  }));
+  
+  const courses = approvedData.map((courser) => ({
+    title: courser.title,
+    students: courser.student_quantity.length,
+  }));
+  
+  const questions = [
+    { student: "John Doe", question: "Can you explain useEffect again?" },
+    { student: "Jane Smith", question: "How to deploy on Vercel?" },
+  ];
+
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 p-6 ">
 
       {/* Left Side - Overview */}
       <div className="lg:col-span-1 space-y-6">
         <div>
-          <h1 className="text-3xl font-bold text-purple-800">Welcome back, Jane!</h1>
+          <h1 className="text-3xl font-bold text-purple-800">Welcome back, {user.name}!</h1>
           <p className="text-gray-600">Here’s what’s happening with your courses.</p>
         </div>
 
@@ -40,7 +46,7 @@ export default function TeacherDashboard() {
               <BookOpen className="text-purple-600 w-6 h-6" />
               <div>
                 <p className="text-sm text-gray-500">Courses</p>
-                <p className="text-xl font-semibold">3</p>
+                <p className="text-xl font-semibold">{courseData.length}</p>
               </div>
             </CardContent>
           </Card>
@@ -49,7 +55,7 @@ export default function TeacherDashboard() {
               <Users className="text-purple-600 w-6 h-6" />
               <div>
                 <p className="text-sm text-gray-500">Total Students</p>
-                <p className="text-xl font-semibold">120</p>
+                <p className="text-xl font-semibold">{approvedData.reduce((total, cor) => total + cor.student_quantity.length, 0)}</p>
               </div>
             </CardContent>
           </Card>
@@ -86,11 +92,6 @@ export default function TeacherDashboard() {
             </ResponsiveContainer>
           </CardContent>
         </Card>
-
-        <div className="flex gap-4">
-          <Button className="bg-purple-600 text-white hover:bg-purple-700">Create New Course</Button>
-          <Button variant="outline" className="text-purple-700 border-purple-600">View Assignments</Button>
-        </div>
       </div>
 
       {/* Right Side - Courses and Questions */}

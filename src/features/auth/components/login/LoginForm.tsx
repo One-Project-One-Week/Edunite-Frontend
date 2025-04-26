@@ -33,7 +33,7 @@ export default function LoginForm() {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
   });
-  const login = useMutation(useLoginOption())
+
   function onSubmit(data: z.infer<typeof loginSchema>) {
     console.log(data);
 
@@ -42,10 +42,6 @@ export default function LoginForm() {
         data.user.role === "Stundent" ? navigate("/student") : data.user.role === "Teacher" ? navigate("/teacher") : navigate("/admin")
       }
     });
-
-   
-
-  })
   }
 
   return (

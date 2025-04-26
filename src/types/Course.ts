@@ -23,6 +23,7 @@ export type Course = {
     description: string;
     course_category: string;
     start_date: string;
+    status: string;
     end_date: string;
     schedule: string;
 }
