@@ -77,6 +77,12 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground overflow-x-hidden;
+  }
+  main {
+    @apply flex items-center mx-auto max-w-full px-24;
+  }
+  nav {
+    @apply flex items-center mx-auto max-w-full px-2;
   }
 }
