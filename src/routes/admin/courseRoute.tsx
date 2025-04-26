@@ -1,5 +1,5 @@
 import LazyLoad from "@/components/LazyLoad";
-import { CourseDatailPageLazyLoadElement, ListingAllCoursePageLazyLoadElement } from "@/constants/LazyLoadElement";
+import { CourseDatailPageLazyLoadElement, ListingAllCoursePageLazyLoadElement, StartedCoursesPageLazyLoadElement } from "@/constants/LazyLoadElement";
 
 
 const courseRoute = [
@@ -10,6 +10,10 @@ const courseRoute = [
     {
         path: '/admin/courses/:id/:title',
         element: <LazyLoad component={CourseDatailPageLazyLoadElement} />
+    },
+    {
+        path: '/admin/started-courses',
+        element: <LazyLoad component={StartedCoursesPageLazyLoadElement} />
     }
 ]
 

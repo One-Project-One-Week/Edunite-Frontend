@@ -4,6 +4,8 @@ import {
   fetchAllDummyTeacher,
   fetchAllDummyUsers,
 } from "./fetchDummy/fetchAllUsers";
+import { dummyCourses } from "@/assets/dummy-datas/course";
+import { BaseCourse } from "@/types/Course";
 
 export const getUserById = async (id: string) => {
   try {
@@ -50,15 +52,17 @@ export const getCoursesByUserId = async (userId: string) => {
     const response = await API.get(`/users/${userId}/courses`);
     return response.data;
   } catch (error) {
-    throw new Error(`Error fetching courses by user ID: ${error}`);
+    const data = dummyCourses.filter((course) => course.user_id === userId);
+    return data;
   }
 };
 
-export const createCourseByUserId = async (userId: string, courseData: any) => {
+export const createCourseByUserId = async (userId: string, courseData: BaseCourse) => {
   try {
     const response = await API.post(`/users/${userId}/courses`, courseData);
     return response.data;
   } catch (error) {
-    throw new Error(`Error creating course for user ID: ${error}`);
+    localStorage.setItem("createdCourse", JSON.stringify(courseData));
+    return {message: "Course created successfully"};
   }
 };

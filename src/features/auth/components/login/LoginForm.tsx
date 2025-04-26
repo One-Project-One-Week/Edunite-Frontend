@@ -33,19 +33,15 @@ export default function LoginForm() {
   const form = useForm<z.infer<typeof loginSchema>>({
     resolver: zodResolver(loginSchema),
   });
-  const login = useMutation(useLoginOption())
+
   function onSubmit(data: z.infer<typeof loginSchema>) {
     console.log(data);
 
-    login.mutate({ email: data.email, password: data.password },{
+    login.mutate({ email: data.email, password: data.password }, {
       onSuccess: (data) => {
         data.user.role === "Stundent" ? navigate("/student") : data.user.role === "Teacher" ? navigate("/teacher") : navigate("/admin")
       }
     });
-
-   
-
-  })
   }
 
   return (

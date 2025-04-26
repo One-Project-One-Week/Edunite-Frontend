@@ -10,9 +10,6 @@ import CreateCourses from "./CreateCourse";
 const TABS = [
   { id: "profile", label: "Profile" },
   { id: "courses", label: "My Courses" },
-  { id: "students", label: "My Students" },
-  { id: "assignments", label: "Assignments" },
-  {id : "logout", label: "Logout"}
 ];
 
 export default function ProfileTabs() {
@@ -43,9 +40,6 @@ export default function ProfileTabs() {
       <div className="max-w-5xl mx-auto">
         {activeTab === "profile" && <TeacherProfile />}
         {activeTab === "courses" && <CreateCourses />}
-        {activeTab === "logout" && (
-          <p>Logout</p>
-        )}
         {/* {activeTab === "certificates" && <Certificates />}
         {activeTab === "others" && <OtherSettings />} */}
       </div>

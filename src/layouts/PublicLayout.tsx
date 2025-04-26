@@ -1,9 +1,32 @@
 import Navbar from "@/components/Navbar"
-import { Outlet } from "react-router-dom"
+import { useEffect } from "react"
+import { Outlet, useNavigate } from "react-router-dom"
+import useUserStore from "@/store/userStore";
 
 export default function PublicLayout() {
+  const {user} = useUserStore();
+  const navigate = useNavigate();
 
-  localStorage.removeItem('User');
+  useEffect(() => {
+      if(!user) {
+        return;
+      }
+
+      switch(user.role) {
+        case "Stundent":
+          navigate("/student");
+          break;
+        case "Teacher":
+          navigate("/teacher");
+          break;
+        case "Admin":
+          navigate("/admin");
+          break;
+        default:
+          navigate("/");
+      }
+
+  },[])
 
   return (
     <div>

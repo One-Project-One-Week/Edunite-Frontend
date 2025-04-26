@@ -77,7 +77,7 @@ export default function Navbar() {
                 </NavigationMenuLink>
               </NavigationMenuItem>
             )}
-            <NavigationMenuItem>
+            {user.role && (<NavigationMenuItem>
               <NavigationMenuLink href={`${user?.role === "Stundent"? "/student/profile" : user?.role === "Teacher"? "/teacher/profile" : "/login"}`}>
                 <Avatar className="w-10">
                   <AvatarImage
@@ -87,7 +87,7 @@ export default function Navbar() {
                   <AvatarFallback>ST</AvatarFallback>
                 </Avatar>
               </NavigationMenuLink>
-            </NavigationMenuItem>
+            </NavigationMenuItem>)}
           </NavigationMenuList>
         </NavigationMenu>
       </div>

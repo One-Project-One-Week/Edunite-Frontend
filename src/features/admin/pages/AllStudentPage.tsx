@@ -9,7 +9,7 @@ export default function AllStudentPage() {
 
   return (
     <div>
-      <h1 className="px-5 mb-5 text-xl font-bold">Users</h1>
+      <h1 className="px-5 mb-5 text-xl font-bold">Students</h1>
       <AdminBreadCrumb currentPageTitle="All Students"/>
       <StudentHeader />
       <StudentTable />

@@ -1,39 +1,21 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-
-type CourseFormData = {
-    title: string;
-    description: string;
-    course_category: string;
-    start_date: string;
-    end_date: string;
-    schedule: string;
-    student_quantity: number;
-};
+import { Plus, X } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { BaseCourse } from "@/types/Course";
+import { useMutation } from "@tanstack/react-query";
+import { createCourseByUserIdOptions } from "@/queries/userQueryOptions";
+import useUserStore from "@/store/userStore";
 
 const CreateCourseForm = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const { register, handleSubmit, reset } = useForm<CourseFormData>();
+    const { register, handleSubmit, reset } = useForm<BaseCourse>();
+    const createCoureseById = useMutation(createCourseByUserIdOptions());
+    const {user} = useUserStore();
 
-    const onSubmit: SubmitHandler<CourseFormData> = (data: CourseFormData) => {
-        const payload = {
-            id: "ccr001",
-            teacher_id: "t001",
-            teacher_name: "Alice Johnson",
-            ...data,
-            status: "pending",
-            created_at: new Date().toISOString(),
+    const onSubmit: SubmitHandler<BaseCourse> = (data: BaseCourse) => {
 
-        };
-        // try {
-        //     const response = await axios.post("/api/create-course-request", payload);
-        //     console.log("✅ Course created:", response.data);
-        //     reset();
-        //     setIsOpen(false);
-        //   } catch (error) {
-        //     console.error("❌ Error creating course:", error);
-        //   }
-        console.log("🚀 Course Payload:", payload);
+        createCoureseById.mutate({user_id: user.id, course: data});
         reset();
 
 
@@ -41,59 +23,92 @@ const CreateCourseForm = () => {
 
     return (
         <>
-            <button onClick={() => setIsOpen(true)} className="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded">
-                Create Course
-            </button>
+            <Button
+            onClick={() => setIsOpen(true)}
+            className="bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white px-6 py-3 rounded-lg shadow-lg flex gap-2 transform transition-transform hover:scale-105"
+            >
+                <span><Plus /></span>
+            <span>Create Course</span>
+            </Button>
 
             {isOpen && (
-                <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center p-4">
-                    <form
-                        onSubmit={handleSubmit(onSubmit)}
-                        className="bg-white p-6 rounded-xl shadow-md w-full max-w-lg space-y-4"
+            <div className="fixed inset-0 bg-black bg-opacity-50 z-40 flex justify-center items-center p-4">
+                <form
+                onSubmit={handleSubmit(onSubmit)}
+                className="bg-white p-8 rounded-2xl shadow-2xl w-full max-w-lg space-y-6 relative"
+                >
+                <button
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                    className="absolute top-4 right-4 text-purple-800  hover:text-gray-700"
+                >
+                    <X />
+                </button>
+                <h2 className="text-2xl font-extrabold text-purple-800 mb-4 text-center">
+                    Create New Course
+                </h2>
+
+                <input
+                    {...register("title")}
+                    placeholder="Course Title"
+                    className="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    required
+                />
+                <textarea
+                    {...register("description")}
+                    placeholder="Description"
+                    className="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    rows={4}
+                    required
+                />
+                <input
+                    {...register("course_category")}
+                    placeholder="Category"
+                    className="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    required
+                />
+                <label className="block text-sm font-medium text-gray-700">
+                    Start Date
+                    <input
+                    type="date"
+                    {...register("start_date")}
+                    className="border border-gray-300 rounded-lg p-3 w-full mt-1 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    required
+                    />
+                </label>
+                <label className="block text-sm font-medium text-gray-700">
+                    End Date
+                    <input
+                    type="date"
+                    {...register("end_date")}
+                    className="border border-gray-300 rounded-lg p-3 w-full mt-1 focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    required
+                    />
+                </label>
+                <input
+                    {...register("schedule")}
+                    placeholder="Schedule"
+                    className="border border-gray-300 rounded-lg p-3 w-full focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                    required
+                />
+
+                <div className="flex justify-end gap-4">
+                    <button
+                    type="button"
+                    onClick={() => setIsOpen(false)}
+                    className="px-4 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-100 transition"
                     >
-                        <h2 className="text-xl font-bold mb-2">Create New Course</h2>
-
-                        <input {...register("title")} placeholder="Course Title" className="border p-2 w-full" required />
-                        <textarea {...register("description")} placeholder="Description" className="border p-2 w-full" required />
-                        <input {...register("course_category")} placeholder="Category" className="border p-2 w-full" required />
-                        <label className="block text-sm font-medium text-gray-700">
-                            Start Date
-                            <input
-                                type="date"
-                                {...register("start_date")}
-                                className="border p-2 w-full mt-1"
-                                required
-                            />
-                        </label>
-                        <label className="block text-sm font-medium text-gray-700">
-                            End Date
-                            <input
-                                type="date"
-                                {...register("end_date")}
-                                className="border p-2 w-full mt-1"
-                                required
-                            />
-                        </label>
-                        <input {...register("schedule")} placeholder="Schedule" className="border p-2 w-full" required />
-
-                        <input
-                            type="number"
-                            {...register("student_quantity", { valueAsNumber: true })}
-                            placeholder="Student Quantity"
-                            className="border p-2 w-full"
-                            required
-                        />
-
-                        <div className="flex justify-end gap-2">
-                            <button type="button" onClick={() => setIsOpen(false)} className="px-4 py-2 border rounded">
-                                Cancel
-                            </button>
-                            <button type="submit" className="bg-purple-600 hover:bg-purple-500 text-white px-4 py-2 rounded">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
+                    Cancel
+                    </button>
+                    <button
+                    type="submit"
+                    className="bg-gradient-to-r from-purple-600 to-purple-500 hover:from-purple-500 hover:to-purple-400 text-white px-6 py-3 rounded-lg shadow-lg transform transition-transform hover:scale-105"
+                    >
+                    Submit
+                    </button>
                 </div>
+                </form>
+            </div>
             )}
         </>
     );
