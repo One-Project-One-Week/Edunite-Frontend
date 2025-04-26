@@ -4,7 +4,7 @@ export const dummyAllUser: BaseUser[] = [
     {
       id: "user-1",
       name: "Alice Johnson",
-      email: "alice.johnson@example.com",
+      email: "admin@gmail.com",
       phone_number: 9876543210,
       role: "Admin"
     },
