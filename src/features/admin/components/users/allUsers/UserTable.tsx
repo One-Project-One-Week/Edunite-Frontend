@@ -31,11 +31,11 @@ export default function UserTable() {
       <Table className="bg-white rounded-lg shadow-lg">
         <TableHeader>
           <TableRow className="bg-white-lilac-50 ">
-            <TableHead className="text-purple-600  font-semibold uppercase tracking-wide">Name</TableHead>
-            <TableHead className="text-purple-600 font-semibold uppercase tracking-wide">Email</TableHead>
-            <TableHead className="text-purple-600  font-semibold uppercase tracking-wide">Phone Number</TableHead>
-            <TableHead className="text-purple-600  text-center font-semibold uppercase tracking-wide">Role</TableHead>
-            <TableHead className="text-purple-600  text-right font-semibold uppercase tracking-wide">Action</TableHead>
+            <TableHead className="text-purple-heart-600  font-semibold uppercase tracking-wide">Name</TableHead>
+            <TableHead className="text-purple-heart-600 font-semibold uppercase tracking-wide">Email</TableHead>
+            <TableHead className="text-purple-heart-600  font-semibold uppercase tracking-wide">Phone Number</TableHead>
+            <TableHead className="text-purple-heart-600  text-center font-semibold uppercase tracking-wide">Role</TableHead>
+            <TableHead className="text-purple-heart-600  text-right font-semibold uppercase tracking-wide">Action</TableHead>
           </TableRow>
 
         </TableHeader>
