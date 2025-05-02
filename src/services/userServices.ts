@@ -6,6 +6,11 @@ import {
 } from "./fetchDummy/fetchAllUsers";
 import { dummyCourses } from "@/assets/dummy-datas/course";
 import { BaseCourse } from "@/types/Course";
+import useCourseStore from "@/store/courseStore";
+import useUserStore from "@/store/userStore";
+
+const { getAllCoursesByUserId, addNewCourse } = useCourseStore.getState();
+const { user } = useUserStore.getState();
 
 export const getUserById = async (id: string) => {
   try {
@@ -47,22 +52,32 @@ export const getAllStudents = async () => {
 };
 
 export const getCoursesByUserId = async (userId: string) => {
-
   try {
     const response = await API.get(`/users/${userId}/courses`);
     return response.data;
   } catch (error) {
-    const data = dummyCourses.filter((course) => course.user_id === userId);
+    const data = getAllCoursesByUserId(userId);
     return data;
   }
 };
 
-export const createCourseByUserId = async (userId: string, courseData: BaseCourse) => {
+export const createCourseByUserId = async (
+  userId: string,
+  courseData: BaseCourse
+) => {
   try {
     const response = await API.post(`/users/${userId}/courses`, courseData);
     return response.data;
   } catch (error) {
-    localStorage.setItem("createdCourse", JSON.stringify(courseData));
-    return {message: "Course created successfully"};
+    addNewCourse({
+      ...courseData,
+      user_id: user.id,
+      username: user.name,
+      student_quantity: [],
+      status: "pending",
+      created_at: new Date().toISOString(),
+      id: String(dummyCourses.length + 1),
+    });
+    return { message: "Course created successfully" };
   }
 };

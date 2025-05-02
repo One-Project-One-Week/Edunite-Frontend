@@ -1,17 +1,34 @@
 import API from "@/api/apiConfig";
-import { fetchDummyCourses, getDummyCourseById } from "@/services/fetchDummy/fetchCourses";
+import useCourseStore from "@/store/courseStore";
+
+const { getOneCourse, courses, updateCourse } = useCourseStore.getState();
 
 export const getAllCourses = async () => {
     try {
         const response = await API.get("/courses");
         return response.data;
     } catch (error) {
-        // Fallback to local data if API call fails
-        const data = fetchDummyCourses();
+
+        const data = courses;
         return data;
-        // throw new Error(`Error fetching all courses: ${error}`);
     }
 };
+
+export const updateStatus = async (courseId: string, status: string) => {
+    
+        try {
+            const response = await API.put(`/courses/${courseId}`, { status });
+            return response.data;
+        } catch (error) {
+            const course = getOneCourse(courseId);
+            if (!course?.id) {
+                throw new Error("Course ID is missing");
+            }
+            const data = { ...course, status, id: course.id };
+            updateCourse(data);
+            return;
+        }
+}
 
 export const getCourseById = async (courseId: string) => {
     try {
@@ -20,7 +37,7 @@ export const getCourseById = async (courseId: string) => {
         
     } catch (error) {
        
-        const data = getDummyCourseById(courseId);
+        const data = getOneCourse(courseId);
         return data;
     }
 };

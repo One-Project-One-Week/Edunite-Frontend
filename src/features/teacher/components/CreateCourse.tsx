@@ -1,34 +1,23 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import CreateCourseForm from "./CreateCourseForm";
-import { dummyCourses } from "@/assets/dummy-datas/course";
 import useUserStore from "@/store/userStore";
+import { useQuery } from "@tanstack/react-query";
+import { getCoursesByUserIdOptions } from "@/queries/userQueryOptions";
+import { Course } from "@/types/Course";
 
 export default function CreateCourses() {
   const { user } = useUserStore();
 
-  const storedCourse = localStorage.getItem("createdCourse");
-  const parsedCourse = storedCourse ? JSON.parse(storedCourse) : null;
+  const {data: courses, isLoading} = useQuery(getCoursesByUserIdOptions(user.id));
 
-  const localCourse = parsedCourse
-    ? [
-        {
-          ...parsedCourse,
-          user_id: user.id,
-          name: user.name,
-          student_quantity: [],
-          status: "pending",
-          created_at: new Date().toISOString(),
-          id: String(dummyCourses.length + 1),
-        },
-      ]
-    : [];
-
-  const dummyCourse = dummyCourses.filter(
-    (course) => course.user_id === user.id
-  );
-
-  const courses = [...dummyCourse, ...localCourse];
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <p className="text-purple-700 text-lg">Loading...</p>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white text-purple-900 p-6">
@@ -39,7 +28,7 @@ export default function CreateCourses() {
 
       {courses.length > 0 ? (
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {courses.map((course) => (
+        {courses.map((course: Course) => (
           <Card
             key={course.id}
             className="bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-300 hover:shadow-2xl hover:scale-105 transition-transform duration-300 transform rounded-lg h-full"

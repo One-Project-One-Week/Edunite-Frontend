@@ -1,13 +1,28 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Book } from "lucide-react";
-import { dummyCourses } from "@/assets/dummy-datas/course";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import { getCourseByIdQueryOptions, updateCourseStatusQueryOptions } from "@/queries/courseQueryOptions";
+import Loading from "@/components/Loading";
 
 export default function CourseRequestDetail() {
   const { id } = useParams();
   const navigate = useNavigate();
 
-  const request = dummyCourses.find((request) => request?.id === id);
+  const {data: request, isLoading} = useQuery(getCourseByIdQueryOptions(id!));
+  const status = useMutation(updateCourseStatusQueryOptions());
+
+  if (isLoading) {
+    return (
+      <Loading />
+    )
+  }
+
+  const handleApprove = () => {
+    status.mutate({ course_id: request?.id!, status: "approved" });
+  }
+
+
   if (!request) {
     navigate("/admin");
   }
@@ -76,7 +91,7 @@ export default function CourseRequestDetail() {
 
     {request?.status === "pending" && (
       <div className="flex gap-4 pt-10">
-        <Button className="bg-purple-heart-700 hover:bg-purple-heart-600 text-white px-6 py-2 rounded transition">
+        <Button onClick={handleApprove} className="bg-purple-heart-700 hover:bg-purple-heart-600 text-white px-6 py-2 rounded transition">
           Approve
         </Button>
         <Button className="bg-gray-50 hover:bg-gray-200 text-gray-900 px-6 py-2 rounded transition">

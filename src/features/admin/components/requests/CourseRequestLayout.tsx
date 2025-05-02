@@ -3,19 +3,30 @@
 import { ScrollArea } from "@/components/ui/scroll-area";
 import CourseRequestList from "./CourseRequestList";
 import CourseRequestHeader from "./CourseRequestHeader";
-import { dummyCourses } from "@/assets/dummy-datas/course";
+import { useQuery } from "@tanstack/react-query";
+import { getAllCoursesQueryOptions } from "@/queries/courseQueryOptions";
+import { Course } from "@/types/Course";
+import Loading from "@/components/Loading";
 
 export default function CourseRequestLayout() {
+
+
+  const { data: courses, isLoading} = useQuery(getAllCoursesQueryOptions());
+
+
+
   return (
     <section>
       <CourseRequestHeader />
-      <ScrollArea className="h-[40rem] my-2 py-4">
+      {isLoading ? (<Loading />) : (
+        <ScrollArea className="h-[40rem] my-2 py-4">
         <div className="px-5 mt-2 grid grid-cols-3 gap-4">
-          {dummyCourses.map((request) => {
+          {courses?.map((request: Course) => {
             return <CourseRequestList request={request} />;
           })}
         </div>
       </ScrollArea>
+      )}
     </section>
   );
 }

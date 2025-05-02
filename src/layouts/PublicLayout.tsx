@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar"
 import { useEffect } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import useUserStore from "@/store/userStore";
+import { dummyCourses } from "@/assets/dummy-datas/course";
 
 export default function PublicLayout() {
   const {user} = useUserStore();
@@ -26,6 +27,10 @@ export default function PublicLayout() {
           navigate("/");
       }
 
+  },[])
+
+  useEffect(() => {
+    localStorage.setItem("Course", JSON.stringify(dummyCourses));
   },[])
 
   return (
