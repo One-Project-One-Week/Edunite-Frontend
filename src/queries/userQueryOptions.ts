@@ -14,7 +14,7 @@ export function getAllTeachersOptions() {
     return queryOptions({
         queryKey: ["teachers"],
         queryFn: getAllTeachers,
-    })
+    }) 
 }
 
 export function getAllStudentsOptions() {

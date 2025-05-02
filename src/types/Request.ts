@@ -1,3 +1,5 @@
+
+
 type BaseCourseRequest = {
     title: string;
     description: string;

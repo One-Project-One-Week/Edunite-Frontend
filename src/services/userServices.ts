@@ -2,12 +2,12 @@ import API from "@/api/apiConfig";
 import {
   fetchAllDummyStudents,
   fetchAllDummyTeacher,
-  fetchAllDummyUsers,
 } from "./fetchDummy/fetchAllUsers";
 import { dummyCourses } from "@/assets/dummy-datas/course";
 import { BaseCourse } from "@/types/Course";
 import useCourseStore from "@/store/courseStore";
 import useUserStore from "@/store/userStore";
+import { dummyAllUser } from "@/assets/dummy-datas/allUser";
 
 const { getAllCoursesByUserId, addNewCourse } = useCourseStore.getState();
 const { user } = useUserStore.getState();
@@ -26,7 +26,7 @@ export const getAllUsers = async () => {
     const response = await API.get("/users");
     return response.data;
   } catch (error) {
-    const data = fetchAllDummyUsers();
+    const data = dummyAllUser;
     return data;
   }
 };

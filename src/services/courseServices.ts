@@ -3,14 +3,15 @@ import useCourseStore from "@/store/courseStore";
 
 const { getOneCourse, courses, updateCourse } = useCourseStore.getState();
 
-export const getAllCourses = async () => {
+export const getAllCourses = async (filter?:string) => {
     try {
         const response = await API.get("/courses");
         return response.data;
     } catch (error) {
 
-        const data = courses;
-        return data;
+        if(!filter) return courses;
+
+        return courses?.filter((cor) => cor.status === filter);
     }
 };
 
@@ -26,7 +27,7 @@ export const updateStatus = async (courseId: string, status: string) => {
             }
             const data = { ...course, status, id: course.id };
             updateCourse(data);
-            return;
+            return data;
         }
 }
 
@@ -36,7 +37,6 @@ export const getCourseById = async (courseId: string) => {
         return response.data;
         
     } catch (error) {
-       
         const data = getOneCourse(courseId);
         return data;
     }

@@ -22,7 +22,7 @@ import {
         <Breadcrumb>
           <BreadcrumbList>
             <BreadcrumbItem className="hidden md:block">
-              <BreadcrumbLink className=" hover:text-purple-heart-600">
+              <BreadcrumbLink className=" hover:text-purple-600">
                 <Link to="/admin">Admin</Link>
               </BreadcrumbLink>
             </BreadcrumbItem>
@@ -34,7 +34,7 @@ import {
               <Fragment key={index}>
                 <BreadcrumbItem>
                   <BreadcrumbPage className="text-gray-500">
-                    <Link className="hover:text-purple-heart-600" to={link.path}> {link.name} </Link>
+                    <Link className="hover:text-purple-600" to={link.path}> {link.name} </Link>
                   </BreadcrumbPage>
                   <BreadcrumbSeparator className="hidden md:block" />
                 </BreadcrumbItem>
@@ -42,7 +42,7 @@ import {
             ))}
   
             <BreadcrumbItem>
-              <BreadcrumbPage className="text-purple-heart-600 font-semibold"> {currentPageTitle} </BreadcrumbPage>
+              <BreadcrumbPage className="text-purple-600 font-semibold"> {currentPageTitle} </BreadcrumbPage>
             </BreadcrumbItem>
           </BreadcrumbList>
         </Breadcrumb>

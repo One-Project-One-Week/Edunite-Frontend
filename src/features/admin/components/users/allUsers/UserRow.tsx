@@ -27,8 +27,9 @@ export default function UserRow({ user }: { user: BaseUser }) {
       </TableCell>
       <TableCell className="text-right">
         <div className="flex justify-end items-center gap-2">
-          <Button variant="outline" size="sm" className="hover:bg-purple-heart-100 text-purple-heart-700 border-purple-heart-200">
+          <Button variant="outline" size="sm" className="hover:bg-purple-heart-100 relative group text-purple-heart-700 border-purple-heart-200">
             <LucideNotepadText className="w-4 h-4" />
+            <span className="absolute top-0 left-[-100px] hidden group-hover:block px-3 py-2 text-purple-400 bg-opacity-50 bg-purple-300 rounded-lg">View Profile</span>
           </Button>
           {/* <Link to={`/admin/${user.id}/details`}>
           <Button variant="outline" size="sm" className="hover:bg-purple-heart-100 text-purple-heart-700 border-purple-heart-200">

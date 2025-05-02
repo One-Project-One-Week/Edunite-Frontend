@@ -11,7 +11,7 @@ export default function StudentRequestList({ request }: StudentRequestListProps)
   return (
     <div className="bg-white rounded-2xl shadow-md p-6 w-full max-w-md hover:shadow-xl transition-transform transform hover:scale-105">
       <div className="mb-4">
-        <h2 className="text-2xl font-bold text-purple-heart-600 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-purple-600 flex items-center gap-2">
           <Book className="w-6 h-6" />
           <span>{request.title}</span>
         </h2>
@@ -40,7 +40,7 @@ export default function StudentRequestList({ request }: StudentRequestListProps)
         </p>
       </div>
       <div className="mt-4">
-        <Button className="bg-purple-heart-600 hover:bg-purple-heart-600 text-white w-full py-2 rounded-lg transition">
+        <Button className="bg-purple-600 hover:bg-purple-600 text-white w-full py-2 rounded-lg transition">
           <Link to={`/admin/request/student-requests/${request.id}/${request.title}`}>View Details</Link>
         </Button>
       </div>

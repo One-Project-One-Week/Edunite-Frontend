@@ -6,29 +6,18 @@ import {
   TableRow,
 } from "@/components/ui/table";
 import UserRow from "./UserRow";
-import { useEffect, useState } from "react";
+import { useQuery } from "@tanstack/react-query";
 import { BaseUser } from "@/types/User";
-import { getAllUsers } from "@/services/userServices";
+import Loading from "@/components/Loading";
+import { getAllUsersOptions } from "@/queries/userQueryOptions";
 
 export default function UserTable() {
-  const [users, setUsers] = useState<BaseUser[]>([]);
-
-  useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const fetchedUsers = await getAllUsers();
-        setUsers(fetchedUsers);
-      } catch (error) {
-        console.error("Error fetching users:", error);
-      }
-    }
-
-    fetchUsers();
-  }, []);
+  
+  const {data:users, isLoading} = useQuery(getAllUsersOptions());
 
   return (
     <section className="px-5 rounded-lg mt-5 max-h-[24rem] overflow-y-auto">
-      <Table className="bg-white rounded-lg shadow-lg">
+      {isLoading? <Loading /> : (<Table className="bg-white rounded-lg shadow-lg">
         <TableHeader>
           <TableRow className="bg-white-lilac-50 ">
             <TableHead className="text-purple-heart-600  font-semibold uppercase tracking-wide">Name</TableHead>
@@ -40,7 +29,7 @@ export default function UserTable() {
 
         </TableHeader>
         <TableBody>
-          {users.map((user) => {
+          {users.map((user: BaseUser) => {
             return (
               <UserRow
                 key={user.id}
@@ -49,7 +38,7 @@ export default function UserTable() {
             )
           })}
         </TableBody>
-      </Table>
+      </Table>)}
     </section>
   )
 }

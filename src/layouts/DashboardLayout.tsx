@@ -7,7 +7,6 @@ export default function DashboardLayout() {
     <div>
       <Navbar />
       <main className="flex-1 justify-center p-4">
-
         <Outlet />
       </main>
     </div>

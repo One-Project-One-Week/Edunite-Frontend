@@ -38,7 +38,7 @@ export function NavMain({
           <SidebarMenuItem onClick={() => setOpen(true)}>
               <SidebarMenuButton tooltip="Dashboard">
                 <NavLink to="/admin" end className="flex gap-2">
-                      <LucideHome className="size-4 text-purple-heart-600" />
+                      <LucideHome className="size-4 text-purple-600" />
                       Dashboard
                 </NavLink>
               </SidebarMenuButton>
@@ -56,7 +56,7 @@ export function NavMain({
             <SidebarMenuItem onClick={()=>setOpen(true)}>
               <CollapsibleTrigger asChild>
                 <SidebarMenuButton tooltip={item.title}>
-                  {item.icon && <item.icon className="text-purple-heart-600" />}
+                  {item.icon && <item.icon className="text-purple-600" />}
                   <span>{item.title}</span>
                   <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
                 </SidebarMenuButton>
@@ -74,8 +74,8 @@ export function NavMain({
                             <span
                               className={`w-full px-5 py-2.5 rounded-lg ${
                                 isActive
-                                  ? " text-purple-heart-600 font-bold"
-                                  : " hover:text-purple-heart-600"
+                                  ? " text-purple-600 font-bold"
+                                  : " hover:text-purple-600"
                               } `}
                             >
                               {subItem.title}

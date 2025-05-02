@@ -19,11 +19,11 @@ export default function TeacherHeader() {
 
         <div className="flex items-center gap-2">
           <Link to="/admin/teachers/add">
-          <button className="bg-purple-heart-600 text-white px-4 py-2 rounded-md">
+          <button className="bg-purple-600 text-white px-4 py-2 rounded-md">
             Add Teacher
           </button>
           </Link>
-          <button className="bg-purple-heart-600 text-white px-4 py-2 rounded-md">
+          <button className="bg-purple-600 text-white px-4 py-2 rounded-md">
             Export
           </button>
        </div>

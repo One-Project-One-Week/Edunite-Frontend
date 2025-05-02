@@ -1,4 +1,5 @@
 import { Course } from "@/types/Course";
+import { dummyStudents } from "./user";
 
 export const dummyCourses: Course[] = [
   {
@@ -6,7 +7,11 @@ export const dummyCourses: Course[] = [
     username: "alice",
     user_id: "1",
     created_at: "2025-04-01T10:00:00Z",
-    student_quantity: ["1", "6", "7"],
+    student_quantity: [
+      { id: "1", name: dummyStudents.find((st) => st.id === "1")?.name || "", avatar: "https://randomuser.me/api/portraits/men/1.jpg" },
+      { id: "6", name: dummyStudents.find((st) => st.id === "6")?.name || "", avatar: "https://randomuser.me/api/portraits/women/6.jpg" },
+      { id: "7", name: dummyStudents.find((st) => st.id === "7")?.name || "", avatar: "https://randomuser.me/api/portraits/men/7.jpg" }
+    ],
     title: "Introduction to Software Engineering",
     description: "Fundamentals of software development, processes, and project structure.",
     course_category: "Engineering",
@@ -20,7 +25,10 @@ export const dummyCourses: Course[] = [
     username: "bob",
     user_id: "1",
     created_at: "2025-04-02T09:30:00Z",
-    student_quantity: ["1", "6"],
+    student_quantity: [
+      { id: "1", name: dummyStudents.find((st) => st.id === "1")?.name || "", avatar: "https://randomuser.me/api/portraits/men/1.jpg" },
+      { id: "6", name: dummyStudents.find((st) => st.id === "6")?.name || "", avatar: "https://randomuser.me/api/portraits/women/6.jpg" }
+    ],
     title: "Advanced Mathematics",
     description: "Exploration of algebra, geometry, and calculus.",
     course_category: "Math",
@@ -34,7 +42,10 @@ export const dummyCourses: Course[] = [
     username: "clara",
     user_id: "1",
     created_at: "2025-04-03T11:00:00Z",
-    student_quantity: ["8", "9"],
+    student_quantity: [
+      { id: "8", name: dummyStudents.find((st) => st.id === "8")?.name || "", avatar: "https://randomuser.me/api/portraits/women/8.jpg" },
+      { id: "9", name: dummyStudents.find((st) => st.id === "9")?.name || "", avatar: "https://randomuser.me/api/portraits/men/9.jpg" }
+    ],
     title: "Graphic Design Basics",
     description: "Introduction to design principles and Adobe Illustrator.",
     course_category: "Art & Design",
@@ -62,7 +73,11 @@ export const dummyCourses: Course[] = [
     username: "eva",
     user_id: "5",
     created_at: "2025-04-05T08:45:00Z",
-    student_quantity: ["6", "7", "8"],
+    student_quantity: [
+      { id: "6", name: dummyStudents.find((st) => st.id === "6")?.name || "", avatar: "https://randomuser.me/api/portraits/women/6.jpg" },
+      { id: "7", name: dummyStudents.find((st) => st.id === "7")?.name || "", avatar: "https://randomuser.me/api/portraits/men/7.jpg" },
+      { id: "8", name: dummyStudents.find((st) => st.id === "8")?.name || "", avatar: "https://randomuser.me/api/portraits/women/8.jpg" }
+    ],
     title: "Artificial Intelligence Overview",
     description: "A non-technical intro to modern AI techniques and applications.",
     course_category: "Technology",
@@ -90,7 +105,9 @@ export const dummyCourses: Course[] = [
     username: "bob",
     user_id: "2",
     created_at: "2025-04-07T09:00:00Z",
-    student_quantity: ["6"],
+    student_quantity: [
+      { id: "6", name: dummyStudents.find((st) => st.id === "6")?.name || "", avatar: "https://randomuser.me/api/portraits/women/6.jpg" }
+    ],
     title: "Geometry in Real Life",
     description: "Explore geometry applications in architecture and design.",
     course_category: "Math",
@@ -104,7 +121,9 @@ export const dummyCourses: Course[] = [
     username: "clara",
     user_id: "3",
     created_at: "2025-04-08T13:15:00Z",
-    student_quantity: ["7"],
+    student_quantity: [
+      { id: "7", name: dummyStudents.find((st) => st.id === "7")?.name || "", avatar: "https://randomuser.me/api/portraits/men/7.jpg" }
+    ],
     title: "Typography Fundamentals",
     description: "Understanding typefaces, kerning, and layout design.",
     course_category: "Art & Design",
@@ -132,7 +151,10 @@ export const dummyCourses: Course[] = [
     username: "eva",
     user_id: "5",
     created_at: "2025-04-10T10:30:00Z",
-    student_quantity: ["6", "10"],
+    student_quantity: [
+      { id: "6", name: dummyStudents.find((st) => st.id === "6")?.name || "", avatar: "https://randomuser.me/api/portraits/women/6.jpg" },
+      { id: "10", name: dummyStudents.find((st) => st.id === "10")?.name || "", avatar: "https://randomuser.me/api/portraits/women/10.jpg" }
+    ],
     title: "Intro to Machine Learning",
     description: "Beginner-friendly guide to supervised learning and models.",
     course_category: "Technology",

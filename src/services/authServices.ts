@@ -21,8 +21,6 @@ export const login = async (credential: { email: string; password: string }) => 
         const response = await API.post("/auth/login", credential);
         return response.data;
     } catch (error) {
-        // console.error("Error during login:", error);
-        // throw error;
 
         let data;
         switch (credential.email) {
