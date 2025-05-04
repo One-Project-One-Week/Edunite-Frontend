@@ -3,13 +3,12 @@ import {
   fetchAllDummyStudents,
   fetchAllDummyTeacher,
 } from "./fetchDummy/fetchAllUsers";
-import { dummyCourses } from "@/assets/dummy-datas/course";
 import { BaseCourse } from "@/types/Course";
 import useCourseStore from "@/store/courseStore";
 import useUserStore from "@/store/userStore";
 import { dummyAllUser } from "@/assets/dummy-datas/allUser";
 
-const { getAllCoursesByUserId, addNewCourse } = useCourseStore.getState();
+const { courses, getAllCoursesByUserId, addNewCourse } = useCourseStore.getState();
 const { user } = useUserStore.getState();
 
 export const getUserById = async (id: string) => {
@@ -58,7 +57,7 @@ export const getCoursesByUserId = async (userId: string) => {
   } catch (error) {
     const data = getAllCoursesByUserId(userId);
     return data;
-  }
+  } 
 };
 
 export const createCourseByUserId = async (
@@ -76,7 +75,7 @@ export const createCourseByUserId = async (
       student_quantity: [],
       status: "pending",
       created_at: new Date().toISOString(),
-      id: String(dummyCourses.length + 1),
+      id: `course-${courses? courses.length + 1: 10}`,
     });
     return { message: "Course created successfully" };
   }

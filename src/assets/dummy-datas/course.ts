@@ -8,7 +8,7 @@ export const dummyCourses: Course[] = [
     user_id: "1",
     created_at: "2025-04-01T10:00:00Z",
     student_quantity: [
-      { id: "1", name: dummyStudents.find((st) => st.id === "1")?.name || "", avatar: "https://randomuser.me/api/portraits/men/1.jpg" },
+      { id: "8", name: dummyStudents.find((st) => st.id === "8")?.name || "", avatar: "https://randomuser.me/api/portraits/men/1.jpg" },
       { id: "6", name: dummyStudents.find((st) => st.id === "6")?.name || "", avatar: "https://randomuser.me/api/portraits/women/6.jpg" },
       { id: "7", name: dummyStudents.find((st) => st.id === "7")?.name || "", avatar: "https://randomuser.me/api/portraits/men/7.jpg" }
     ],
@@ -26,7 +26,7 @@ export const dummyCourses: Course[] = [
     user_id: "1",
     created_at: "2025-04-02T09:30:00Z",
     student_quantity: [
-      { id: "1", name: dummyStudents.find((st) => st.id === "1")?.name || "", avatar: "https://randomuser.me/api/portraits/men/1.jpg" },
+      { id: "8", name: dummyStudents.find((st) => st.id === "8")?.name || "", avatar: "https://randomuser.me/api/portraits/men/1.jpg" },
       { id: "6", name: dummyStudents.find((st) => st.id === "6")?.name || "", avatar: "https://randomuser.me/api/portraits/women/6.jpg" }
     ],
     title: "Advanced Mathematics",

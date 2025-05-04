@@ -1,60 +1,21 @@
 import { useParams } from "react-router-dom";
-import { dummyCourses } from "@/assets/dummy-datas/course";
-import { Course } from "@/types/Course";
-import { dummyStudents } from "@/assets/dummy-datas/user";
+import Loading from "@/components/Loading";
 import { Link } from "react-router-dom";
-import useUserStore from "@/store/userStore";
-import AdminBreadCrumb from "@/components/AdminBreadCrumb";
+import { useQuery } from "@tanstack/react-query";
+import { getCourseByIdQueryOptions } from "@/queries/courseQueryOptions";
+import { StudentObj } from "@/types/Course";
 
 export default function CourseDetail() {
   const { courseId } = useParams<{ courseId: string }>();
-  const {user} = useUserStore();
-  let course: Course | undefined = dummyCourses.find(
-    (course) => course.id === courseId
-  );
 
-  const storedCourse = localStorage.getItem("createdCourse");
-  const parsedCourse = storedCourse ? JSON.parse(storedCourse) : null;
+  if(!courseId) return;
 
-  const localCourse = parsedCourse
-    ?
-        {
-          ...parsedCourse,
-          user_id: user.id,
-          username: user.name,
-          student_quantity: [],
-          status: "pending",
-          created_at: new Date().toISOString(),
-          id: String(dummyCourses.length + 1),
-        }
-    : {};
+  const {data: course, isLoading}  = useQuery(getCourseByIdQueryOptions(courseId));
 
-  if(!course) {
-    course = localCourse
-  }
-
-  const enrolledStudents = dummyStudents.filter((student) =>
-    student.enrolled_courses?.some((course) => course.id === courseId)
-  );
-
-  if (!course) {
-    return (<div className="w-full h-screen flex flex-col items-center justify-center text-center space-y-6">
-      <h1 className="text-4xl font-bold text-gray-800">Course Not Found</h1>
-      <p className="text-lg text-gray-600">
-        The course you are looking for does not exist or has been removed.
-      </p>
-      <Link
-        to="/teacher/profile"
-        className="px-6 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-md hover:shadow-lg"
-      >
-        Go Back to Home
-      </Link>
-    </div>)
-  }
 
   return (
-    <div className="w-full max-w-6xl mx-auto px-6 py-10 font-sans">
-      <AdminBreadCrumb  currentPageTitle="Detail"/>
+    <>
+    {isLoading? <Loading /> : (<div className="w-full max-w-6xl mx-auto px-6 py-10 font-sans">
       <div className="mb-10">
         <h1 className="text-5xl font-extrabold text-purple-900 tracking-tight mb-4 flex items-center space-x-4">
           <span>{course.title}</span>
@@ -122,30 +83,31 @@ export default function CourseDetail() {
         <h2 className="text-3xl font-bold text-purple-900 mb-6">
           Enrolled Students
         </h2>
-        {enrolledStudents.length > 0 ? (
+        {course.student_quantity.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {enrolledStudents.map((student) => (
+        {course.student_quantity.map((student:StudentObj) => (
           <div
-            key={student.id}
-            className="p-6 bg-gradient-to-r from-purple-50 to-purple-100 rounded-2xl flex justify-between shadow-lg hover:shadow-xl transition-shadow transform hover:scale-105 duration-200"
-          >
-            <div>
-          <div className="text-lg font-semibold text-gray-800">
-            {student.name}
+          key={student.id}
+          className="p-6 bg-gradient-to-br from-purple-100 to-purple-200 rounded-2xl flex items-center justify-between shadow-md hover:shadow-lg transition-all duration-200"
+        >
+          <div className="flex items-center gap-4">
+            <img
+              src={student.avatar}
+              alt={student.name}
+              className="w-14 h-14 rounded-full object-cover shadow-sm"
+            />
+            <div className="text-lg font-medium text-gray-800">{student.name}</div>
           </div>
-          <div className="text-sm text-gray-600">
-            Grade: {student.grade}
-          </div>
-            </div>
-            <div>
+        
           <Link
             to="/"
-            className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-md hover:shadow-lg"
+            className="px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors duration-200 shadow-sm hover:shadow-md text-sm"
           >
             View Profile
           </Link>
-            </div>
-          </div>
+        </div>
+        
+        
         ))}
           </div>
         ) : (
@@ -154,6 +116,7 @@ export default function CourseDetail() {
           </p>
         )}
       </div>
-    </div>
+    </div>)}
+    </>
   );
 }

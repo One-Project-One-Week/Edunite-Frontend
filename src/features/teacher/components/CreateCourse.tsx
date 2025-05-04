@@ -5,6 +5,7 @@ import useUserStore from "@/store/userStore";
 import { useQuery } from "@tanstack/react-query";
 import { getCoursesByUserIdOptions } from "@/queries/userQueryOptions";
 import { Course } from "@/types/Course";
+import Loading from "@/components/Loading";
 
 export default function CreateCourses() {
   const { user } = useUserStore();
@@ -13,9 +14,7 @@ export default function CreateCourses() {
 
   if (isLoading) {
     return (
-      <div className="flex items-center justify-center h-screen">
-        <p className="text-purple-700 text-lg">Loading...</p>
-      </div>
+      <Loading />
     );
   }
 

@@ -48,16 +48,18 @@ export const createCourseByUserIdOptions = (): MutationOptions<
     return {
         mutationFn: ({ user_id, course }: CreateCourse) =>
             createCourseByUserId(user_id, course),
-        onSuccess: ({ user_id }) => {
+        onSuccess: ( _, variables) => {
+            
+            const { user_id } = variables;
             queryClient.invalidateQueries({ queryKey: ["users", user_id, "courses"] });
-            window.location.reload();
+            queryClient.invalidateQueries({ queryKey: ["courses"]});
         },
         onError: (error, { user_id }, context) => {
             console.error("Error creating course:", error);
             if (context?.previousData) {
                 queryClient.setQueryData(["users", user_id, "courses"], context.previousData);
             }
-        },
+        }
     };
 };
 

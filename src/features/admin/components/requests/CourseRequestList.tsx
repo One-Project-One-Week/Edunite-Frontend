@@ -42,7 +42,7 @@ export default function CourseRequestList({ request }: CourseRequestListProps) {
           {request.start_date} → {request.end_date}
         </p>
         <p>
-          <span className="font-medium text-gray-800">Target Students:</span>{" "}
+          <span className="font-medium text-gray-800">Enrolled Students:</span>{" "}
           {request.student_quantity?.length}
         </p>
         <p className="flex items-center">

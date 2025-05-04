@@ -9,7 +9,7 @@ export const getAllCourses = async (filter?:string) => {
         return response.data;
     } catch (error) {
 
-        if(!filter) return courses;
+        if(filter === "all") return courses;
 
         return courses?.filter((cor) => cor.status === filter);
     }

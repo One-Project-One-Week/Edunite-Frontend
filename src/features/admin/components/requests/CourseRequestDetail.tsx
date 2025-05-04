@@ -20,6 +20,10 @@ export default function CourseRequestDetail() {
     status.mutate({ course_id: request?.id!, status: "approved" });
   };
 
+  const handleReject = () => {
+    status.mutate({ course_id: request?.id!, status: "rejected"});
+  }
+
   if (!request) {
     navigate("/admin");
   }
@@ -96,7 +100,7 @@ export default function CourseRequestDetail() {
             >
               Approve
             </Button>
-            <Button className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-3 rounded-lg shadow-md transition">
+            <Button onClick={handleReject} className="bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-3 rounded-lg shadow-md transition">
               Reject
             </Button>
           </div>
